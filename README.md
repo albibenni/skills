@@ -1,17 +1,17 @@
-# Gemini Skills in Dotfiles
+# Agent Skills in Dotfiles
 
-This directory contains specialized Gemini CLI skills. By storing them here, your custom AI workflows follow your environment.
+This directory contains specialized agent skills compatible with Gemini CLI, Claude Code, and other supporting tools. By storing them here, your custom AI workflows follow your environment.
 
 ## Installation & Sync
 
-Gemini CLI supports installing skills directly from a directory. This is the preferred method for dotfiles as it avoids managing binary `.skill` files.
+Agent tools support installing skills directly from a directory. This is the preferred method for dotfiles as it avoids managing binary artifacts.
 
 ### Install a Skill
-Run the following command to link a skill from your dotfiles to your local Gemini configuration:
+Run the following command to link a skill from your dotfiles to your local configuration:
 
 ```bash
-# Install the project-onboarding skill
-gemini skills install ~/dotfiles/gemini-skills/project-onboarding/project-onboarding --scope user
+# Example for Gemini CLI
+gemini skills install ~/dotfiles/skills/project-onboarding/project-onboarding --scope user
 ```
 
 ### Update a Skill
