@@ -17,6 +17,7 @@ This skill focuses on delivering a conceptual understanding followed by concrete
 
 ## Guidelines
 
+*   **Up-to-Date Research**: Always prioritize the latest documentation and best practices as of the current date (refer to session context). Verify that suggested patterns or APIs have not been deprecated or superseded.
 *   **Clarity First**: Ensure the text explanation can stand alone before the user even looks at the code.
 *   **Idiomatic Code**: 
     *   **TypeScript**: Prefer `const`, arrow functions, and structural typing. Use `strict` types.
