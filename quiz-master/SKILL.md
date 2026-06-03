@@ -14,11 +14,12 @@ This skill focuses on verifying understanding through structured, multi-level as
     *   **3 Foundational**: Basic concepts, terminology, and definitions.
     *   **3 Intermediate**: Application of concepts, logical flow, and relationships between components.
     *   **2 Advanced**: Edge cases, architectural implications, and complex dependencies.
-3.  **Present Quiz**: Display the questions clearly with options A, B, C, and D.
-4.  **Evaluate**: Wait for the user to provide their answers, then provide the correct keys with a brief explanation for each.
+3.  **Present and Persist Quiz**: Display the questions clearly with options A, B, C, and D. Simultaneously, write the full quiz (questions and options) to a file named `QUIZ.md` in the target folder.
+4.  **Evaluate with Detailed Solutions**: Wait for the user to provide their answers, then provide the correct keys with comprehensive, detailed solutions for each. Append these solutions to the `QUIZ.md` file in the target folder for future reference.
 
 ## Guidelines
 
 *   **Clarity**: Questions should be unambiguous and directly related to the analyzed material.
-*   **High-Signal Explanations**: When providing answers, explain *why* the correct choice is right and *why* others might be misleading.
+*   **High-Signal Explanations**: When providing answers, explain *why* the correct choice is right and *why* others might be misleading. Provide detailed solutions that cover the underlying logic and context.
 *   **Contextual Accuracy**: Ensure all questions are grounded in the provided context, avoiding generic external knowledge unless relevant.
+*   **Persistence**: Always ensure the quiz and its solutions are documented in the target folder (e.g., `QUIZ.md`) to facilitate long-term knowledge retention.
