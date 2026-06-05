@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Agent Skills Management
-# Standardizes skill locations for Gemini, Claude, and Omarchy
+# Standardizes skill locations for Antigravity, Gemini, Claude, and Omarchy
 # Uses a surgical "File-Level" approach to avoid whole-folder symlinks.
 
 setup-agent-skills() {
@@ -11,13 +11,13 @@ setup-agent-skills() {
     local RED='\033[0;31m'
     local NC='\033[0m'
 
-    local DOTFILES_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && cd ../../.. && pwd)"
-    local SKILLS_SOURCE="$DOTFILES_DIR/agent/.config/agent/skills"
+    local SKILLS_SOURCE="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
 
     # Standard paths to surgically populate
     local AGENT_PATHS=(
         "$HOME/.config/agent"
         "$HOME/.agents"
+        "$HOME/.gemini/antigravity-cli"
     )
 
     echo -e "${BLUE}=== Setting up Agent Skills (Surgical File-Level Symlinks) ===${NC}"

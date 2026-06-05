@@ -11,7 +11,7 @@ This skill automates the process of understanding a new or existing codebase and
 
 1.  **Research**:
     *   Examine `Cargo.toml`, `package.json`, `go.mod`, etc., to identify the tech stack.
-    *   Read `README.md` and `GEMINI.md` for architectural context.
+    *   Read `README.md`, `AGY.md`, or `GEMINI.md` for architectural context.
     *   Use `ls -R` or `glob` to map the directory structure.
     *   Identify key entry points (e.g., `main.rs`, `index.js`).
 
@@ -28,4 +28,4 @@ This skill automates the process of understanding a new or existing codebase and
 ## Guidelines
 
 *   Be concise. Focus on *intent* and *rationale* over line-by-line code explanation.
-*   If the project has a `GEMINI.md`, prioritize its instructions as the source of truth for architecture.
+*   If the project has an `AGY.md` or `GEMINI.md`, prioritize its instructions as the source of truth for architecture.
