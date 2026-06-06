@@ -17,6 +17,7 @@ This skill focuses on practical application and skill acquisition through iterat
 3.  **Present Exercises**: List the exercises clearly. For coding topics:
     *   Provide a "Starter Code" snippet.
     *   **Include Automated Tests**: For every exercise, provide a companion test suite (e.g., using `jest`, `pytest`, `cargo test`, etc.) that the user can run to verify their implementation. Include a clear command on how to execute the tests.
+    *   **Include Code**: For every exercise, provide a solution code at the bottom of the file
 4.  **Feedback Loop**: Offer to provide hints or the full solution for each exercise as the user progresses.
 
 ## Guidelines
