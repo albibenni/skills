@@ -20,7 +20,7 @@ This skill focuses on delivering a conceptual understanding followed by concrete
 2.  **Implementation Strategy**: Briefly outline how the concept translates into code before showing the examples.
 3.  **Code Implementation**:
     - If a specific language was detected in Context Awareness, provide one idiomatic example in that language.
-    - Otherwise, provide the **Standard Pair**: one concise, idiomatic TypeScript example and one concise, idiomatic Java example.
+    - Otherwise, provide the **Standard Pair**: one concise, idiomatic TypeScript example.
 4.  **Comparative Summary**: A short bulleted list of key takeaways or language-specific nuances.
 
 ## Guidelines
@@ -29,6 +29,5 @@ This skill focuses on delivering a conceptual understanding followed by concrete
 - **Clarity First**: Ensure the text explanation can stand alone before the user even looks at the code.
 - **Idiomatic Code**:
   - **TypeScript**: Prefer `const`, arrow functions, and structural typing. Use `strict` types.
-  - **Java**: Follow standard naming conventions and prefer readability. Use Java 17+ features (Records, Sealed Classes) where appropriate.
   - **Other Languages**: Strictly follow the idiomatic conventions of the detected language (e.g., PEP 8 for Python, standard formatting for Go).
-- **Default Pair**: When the context is general, always provide both TS and Java examples to ensure cross-platform understanding.
+- **Default Pair**: When the context is general, always provide TS examples.
