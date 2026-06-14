@@ -1,11 +1,11 @@
 ---
 name: explain
-description: Provides clear, high-signal explanations of code, concepts, or architectures followed by idiomatic code examples in both TypeScript and Java. Triggered when the user asks "explain," "how does X work," or "what is the best way to implement Y."
+description: Provides clear, high-signal explanations of code, concepts, or architectures, including in-depth analysis, suggestions, and relevant links, followed by idiomatic code examples in both TypeScript and Java. Triggered when the user asks "explain," "how does X work," or "what is the best way to implement Y."
 ---
 
 # Explain
 
-This skill focuses on delivering a conceptual understanding followed by concrete, language-appropriate implementations.
+This skill focuses on delivering a deep conceptual understanding, strategic suggestions, and relevant resources followed by concrete, language-appropriate implementations.
 
 ## Context Awareness
 
@@ -17,16 +17,21 @@ This skill focuses on delivering a conceptual understanding followed by concrete
 ## Workflow
 
 1.  **Conceptual Explanation**: Start with a high-level "clear explanation" of the concept, pattern, or logic. Focus on the _intent_ and _rationale_. Use analogies if they help clarify complex topics.
-2.  **Implementation Strategy**: Briefly outline how the concept translates into code before showing the examples.
-3.  **Code Implementation**:
+2.  **In-depth Analysis**: Provide a deeper dive into the technical details, trade-offs, and edge cases. Explain *why* certain approaches are preferred over others in specific contexts (e.g., performance, scalability, maintainability).
+3.  **Suggestions**: Offer proactive advice or alternative patterns that might be relevant to the user's likely goals.
+4.  **Implementation Strategy**: Briefly outline how the concept translates into code before showing the examples.
+5.  **Code Implementation**:
     - If a specific language was detected in Context Awareness, provide one idiomatic example in that language.
     - Otherwise, provide the **Standard Pair**: one concise, idiomatic TypeScript example.
-4.  **Comparative Summary**: A short bulleted list of key takeaways or language-specific nuances.
+6.  **Comparative Summary**: A short bulleted list of key takeaways or language-specific nuances.
+7.  **Additional Resources**: Provide 2-3 high-quality links (official docs, seminal blog posts, or RFCs) for further reading.
 
 ## Guidelines
 
 - **Up-to-Date Research**: Always prioritize the latest documentation and best practices as of the current date (refer to session context). Verify that suggested patterns or APIs have not been deprecated or superseded.
 - **Clarity First**: Ensure the text explanation can stand alone before the user even looks at the code.
+- **Analytical Depth**: In the analysis phase, don't just state facts; explain the underlying mechanics and implications.
+- **Actionable Suggestions**: Ensure suggestions are practical and directly applicable to common development scenarios.
 - **Idiomatic Code**:
   - **TypeScript**: Prefer `const`, arrow functions, and structural typing. Use `strict` types.
   - **Other Languages**: Strictly follow the idiomatic conventions of the detected language (e.g., PEP 8 for Python, standard formatting for Go).
