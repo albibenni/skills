@@ -1,6 +1,6 @@
 ---
 name: explain
-description: Provides clear, high-signal explanations of code, concepts, or architectures, including in-depth analysis, suggestions, and relevant links, followed by idiomatic code examples in both TypeScript and Java. Triggered when the user asks "explain," "how does X work," or "what is the best way to implement Y."
+description: Provides clear, high-signal explanations of code, concepts, or architectures, including in-depth analysis, suggestions, and relevant links, followed by idiomatic code examples in TypeScript. Triggered when the user asks "explain," "how does X work," or "what is the best way to implement Y."
 ---
 
 # Explain
