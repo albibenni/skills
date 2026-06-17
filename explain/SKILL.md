@@ -11,7 +11,7 @@ This skill focuses on delivering a deep conceptual understanding, strategic sugg
 
 1.  **Language Detection**: Analyze the target `file_path` or current working directory:
     - If the path implies a specific language (e.g., contains `.py`, `/python/`, `.rs`, `/rust/`, `.cpp`, etc.), prioritize that language for the implementation.
-    - If the path is general (e.g., `/Concepts/`, `/Documentation/`) or the language is ambiguous, default to the **Standard Pair** (TypeScript and Java).
+    - If the path is general (e.g., `/Concepts/`, `/Documentation/`) or the language is ambiguous, default to **TypeScript**.
 2.  **Overrides**: If the user explicitly requests a specific language, follow that request regardless of the path.
 
 ## Workflow
@@ -22,7 +22,7 @@ This skill focuses on delivering a deep conceptual understanding, strategic sugg
 4.  **Implementation Strategy**: Briefly outline how the concept translates into code before showing the examples.
 5.  **Code Implementation**:
     - If a specific language was detected in Context Awareness, provide one idiomatic example in that language.
-    - Otherwise, provide the **Standard Pair**: one concise, idiomatic TypeScript example.
+    - Otherwise, provide the **Default Language**: one concise, idiomatic TypeScript example.
 6.  **Comparative Summary**: A short bulleted list of key takeaways or language-specific nuances.
 7.  **Additional Resources**: Provide 2-3 high-quality links (official docs, seminal blog posts, or RFCs) for further reading.
 
@@ -35,4 +35,4 @@ This skill focuses on delivering a deep conceptual understanding, strategic sugg
 - **Idiomatic Code**:
   - **TypeScript**: Prefer `const`, arrow functions, and structural typing. Use `strict` types.
   - **Other Languages**: Strictly follow the idiomatic conventions of the detected language (e.g., PEP 8 for Python, standard formatting for Go).
-- **Default Pair**: When the context is general, always provide TS examples.
+- **Default Language**: When the context is general, always provide TypeScript examples.
