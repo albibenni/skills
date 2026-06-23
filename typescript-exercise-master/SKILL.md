@@ -14,7 +14,7 @@ This skill focuses on mastering TypeScript through practical, type-safe implemen
     - **4 Beginner**: Focused on basic types, interfaces, optionality, and simple function signatures.
     - **4 Intermediate**: Focused on Generics, Union/Intersection types, Type Guards, and Utility Types.
     - **2 Advanced**: Focused on Conditional Types, Mapped Types, Template Literal Types, and complex Inference.
-3.  **Present Exercises**: List the exercises clearly. **All generated exercises must be written to a single `.md` file in the workspace (e.g., `typescript-exercises.md`) using the `write_file` tool.**
+3.  **Present Exercises**: List the exercises clearly. **All generated exercises must be written to a single `.md` file in the workspace (e.g., `typescript-exercises.md`) using the `write_file` tool.** Include a reference (e.g., a link) to the corresponding quiz file in this newly created file. Additionally, update the original file that was the subject of the exercise to include a reference (e.g., a link) pointing to this newly created exercise file.
     - **Exercises & Tests Codeblock**: All 10 exercises, including their starter code and test suites, MUST be contained within a **single** markdown codeblock. This allows the user to copy-paste the entire practice session into a single `.test.ts` file at once. The starter code should be incomplete (e.g., using `any` or `TODO` types) to be solved by the user.
         - Include necessary imports at the top (e.g., `import { describe, it, expect, expectTypeOf } from 'vitest'`).
         - Use clear comment headers to separate exercises (e.g., `// --- Exercise 1: [Topic] ---`).

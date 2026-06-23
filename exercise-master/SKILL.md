@@ -14,7 +14,7 @@ This skill focuses on practical application and skill acquisition through iterat
     - **4 Beginner**: Focused on syntax, basic definitions, and simple implementation.
     - **4 Intermediate**: Focused on logic, combining multiple concepts, and refactoring.
     - **2 Advanced**: Focused on optimization, architectural design, or complex problem-solving.
-3.  **Present Exercises**: List the exercises clearly. **All generated exercises must be written to a single `.md` file in the workspace (e.g., `exercises.md`) using the `write_file` tool.**
+3.  **Present Exercises**: List the exercises clearly. **All generated exercises must be written to a single `.md` file in the workspace (e.g., `exercises.md`) using the `write_file` tool.** Include a reference (e.g., a link) to the corresponding quiz file in this newly created file. Additionally, update the original file that was the subject of the exercise to include a reference (e.g., a link) pointing to this newly created exercise file.
     - **Single Codeblock Requirement**: For coding topics, all 10 exercises, including their starter code and test suites, MUST be contained within a **single** markdown codeblock. This allows the user to copy-paste the entire practice session at once.
     - **Structure within the Codeblock**: Use clear comment headers to separate exercises (e.g., `// --- Exercise 1: [Topic] ---`).
     - **Include Automated Tests**: For every exercise, provide a companion test suite (e.g., using `jest`, `pytest`, `cargo test`, etc.) that the user can run to verify their implementation. Include a clear command on how to execute the tests.
