@@ -14,7 +14,7 @@ This skill focuses on verifying understanding through structured, multi-level as
     - **3 Foundational**: Basic concepts, terminology, and definitions.
     - **3 Intermediate**: Application of concepts, logical flow, and relationships between components.
     - **2 Advanced**: Edge cases, architectural implications, and complex dependencies.
-3.  **Present and Persist Quiz**: Display the questions clearly with options A, B, C, and D. Simultaneously, write the full quiz (questions and options) to a file named `<topic>_quiz.md` in the target folder.
+3.  **Present and Persist Quiz**: Display the questions clearly with options A, B, C, and D. Simultaneously, write the full quiz (questions and options) to a file named `<topic>_quiz.md` in the target folder. Include a reference (e.g., a link) to the corresponding exercise file. Additionally, update the original file that was the subject of the quiz to include a reference (e.g., a link) pointing to this newly created `<topic>_quiz.md` file.
 4.  **Evaluate with Detailed Solutions**: At the bottom of the file provide their answers keys with explanations
 
 ## Guidelines
