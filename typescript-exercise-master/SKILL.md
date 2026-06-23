@@ -15,13 +15,12 @@ This skill focuses on mastering TypeScript through practical, type-safe implemen
     - **4 Intermediate**: Focused on Generics, Union/Intersection types, Type Guards, and Utility Types.
     - **2 Advanced**: Focused on Conditional Types, Mapped Types, Template Literal Types, and complex Inference.
 3.  **Present Exercises**: List the exercises clearly. **All generated exercises must be written to a single `.md` file in the workspace (e.g., `typescript-exercises.md`) using the `write_file` tool.**
-    - **Single Codeblock Requirement**: All 10 exercises, including their starter code and test suites, MUST be contained within a **single** markdown codeblock. This allows the user to copy-paste the entire practice session into a single `.test.ts` file at once.
-    - **Structure within the Codeblock**:
-        - Include necessary imports at the top (e.g., `import { describe, it, expect } from 'vitest'`).
+    - **Exercises & Tests Codeblock**: All 10 exercises, including their starter code and test suites, MUST be contained within a **single** markdown codeblock. This allows the user to copy-paste the entire practice session into a single `.test.ts` file at once. The starter code should be incomplete (e.g., using `any` or `TODO` types) to be solved by the user.
+        - Include necessary imports at the top (e.g., `import { describe, it, expect, expectTypeOf } from 'vitest'`).
         - Use clear comment headers to separate exercises (e.g., `// --- Exercise 1: [Topic] ---`).
         - Ensure namespacing or unique naming if exercises share similar identifiers.
     - **Test Suite Integration**: Use **Vitest** (preferred) or **Jest** syntax.
-    - **Solution**: Include the full solutions at the bottom of the **same .md file**, either in a separate codeblock or within the main block as commented-out code, clearly marked to avoid spoilers.
+    - **Solutions Codeblock**: Include the full, completed solutions at the bottom of the **same .md file** in a **separate** markdown codeblock, clearly marked to avoid spoilers. This allows the user to refer to them only after attempting the exercises.
 4.  **Feedback Loop**: Offer hints and explain the "why" behind TypeScript's behavior, focusing on type inference, structural typing, and safety.
 
 ## Guidelines
