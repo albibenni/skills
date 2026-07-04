@@ -19,6 +19,7 @@ This skill focuses on verifying understanding through structured, multi-level as
 
 ## Guidelines
 
+- **Unpredictable Options**: Avoid patterns that let someone guess the answer without knowing the material. In particular, the correct option must NOT be systematically the longest, most detailed, or most technically-worded choice. Vary which letter (A/B/C/D) holds the correct answer across the quiz, and keep distractors similar in length, specificity, and style to the correct answer. Before finalizing, review the option lengths across all 8 questions and rewrite any where the correct answer stands out.
 - **Clarity**: Questions should be unambiguous and directly related to the analyzed material.
 - **High-Signal Explanations**: When providing answers, explain _why_ the correct choice is right and _why_ others might be misleading. Provide detailed solutions that cover the underlying logic and context.
 - **Contextual Accuracy**: Ensure all questions are grounded in the provided context, avoiding generic external knowledge unless relevant.
