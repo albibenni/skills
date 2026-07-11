@@ -13,6 +13,7 @@ This skill focuses on delivering a deep conceptual understanding, strategic sugg
     - If the path implies a specific language (e.g., contains `.py`, `/python/`, `.rs`, `/rust/`, `.cpp`, etc.), prioritize that language for the implementation.
     - If the path is general (e.g., `/Concepts/`, `/Documentation/`) or the language is ambiguous, default to **TypeScript**.
 2.  **Overrides**: If the user explicitly requests a specific language, follow that request regardless of the path.
+3.  **Target Location Identification**: Understand the context of the topic explained. Given a directory (or defaulting to the current workspace), search for the best spot to write the explanation or implementation into.
 
 ## Workflow
 
@@ -25,6 +26,7 @@ This skill focuses on delivering a deep conceptual understanding, strategic sugg
     - Otherwise, provide the **Default Language**: one concise, idiomatic TypeScript example.
 6.  **Comparative Summary**: A short bulleted list of key takeaways or language-specific nuances.
 7.  **Additional Resources**: Provide 2-3 high-quality links (official docs, seminal blog posts, or RFCs) for further reading.
+8.  **Contextual Writing**: If the task involves writing the explanation or implementation into the project, navigate to the target location identified in Context Awareness and integrate the content smoothly (e.g., adding a markdown file, updating a README, or inserting code into the appropriate module).
 
 ## Guidelines
 
