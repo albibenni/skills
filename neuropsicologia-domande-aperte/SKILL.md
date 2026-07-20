@@ -1,0 +1,1 @@
+/Users/elisarossari/dotfiles/agent/.config/agent/skills/neuropsicologia-domande-aperte/SKILL.md
