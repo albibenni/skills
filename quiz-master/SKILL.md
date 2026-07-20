@@ -15,7 +15,27 @@ This skill focuses on verifying understanding through structured, multi-level as
     - **3 Intermediate**: Application of concepts, logical flow, and relationships between components.
     - **2 Advanced**: Edge cases, architectural implications, and complex dependencies.
 3.  **Present and Persist Quiz**: Display the questions clearly with options A, B, C, and D. Simultaneously, write the full quiz (questions and options) to a file named `<topic>_quiz.md` in the target folder. Include a reference (e.g., a link) to the corresponding exercise file. Additionally, update the original file that was the subject of the quiz to include a reference (e.g., a link) pointing to this newly created `<topic>_quiz.md` file.
-4.  **Evaluate with Detailed Solutions**: At the bottom of the file provide their answers keys with explanations
+4.  **Evaluate with Detailed Solutions**: At the bottom of the file, provide the answers key under a heading named `## Answers`. Each answer must state the question number and the correct letter (e.g., `1. B`), followed immediately by a line starting exactly with `Explanation: ` that explains the reasoning.
+
+## Strict Formatting Requirements
+
+The generated `<topic>_quiz.md` file MUST strictly adhere to the following format so it can be parsed correctly by external tools:
+1. **Questions**: Each question must start with its number followed by a period (e.g., `1. What is...?`).
+2. **Options**: The question must be immediately followed by options starting with `A. `, `B. `, `C. `, `D. ` (at least A and B are required).
+3. **Answers Section**: Must be under a heading containing the word `Answers` or `Solutions`.
+4. **Answer Key & Explanation**: Each correct answer must be stated as `1. B` (number, period, letter) and the very next line MUST begin exactly with the keyword `Explanation: `.
+
+Example format:
+1. What is the most effective way to prevent SQL Injection?
+A. Using a Web Application Firewall
+B. Using Prepared Statements
+C. Escaping all user input manually
+D. Obfuscating the database schema
+
+## Answers
+
+1. B
+Explanation: Prepared statements ensure that the database treats user input as data, neutralizing SQL injection attacks.
 
 ## Guidelines
 
