@@ -31,6 +31,11 @@ setup-agent-skills() {
     # 1. Prepare target directories
     for base_path in "${AGENT_PATHS[@]}"; do
         local target_skills_dir="$base_path/skills"
+        local target_skills_real=$(readlink -f "$target_skills_dir" 2>/dev/null || echo "")
+
+        if [[ "$target_skills_real" == "$SKILLS_SOURCE" ]]; then
+            continue
+        fi
 
         # If the path is a symlink (link to a folder), we UNLINK it.
         # This removes the "shortcut" but does NOT touch the folder it points to.
@@ -53,7 +58,14 @@ setup-agent-skills() {
         echo -e "  ${BLUE}Surgically linking: ${NC}$rel_path"
 
         for base_path in "${AGENT_PATHS[@]}"; do
-            local target_file="$base_path/skills/$rel_path"
+            local target_skills_dir="$base_path/skills"
+            local target_skills_real=$(readlink -f "$target_skills_dir" 2>/dev/null || echo "")
+
+            if [[ "$target_skills_real" == "$SKILLS_SOURCE" ]]; then
+                continue
+            fi
+
+            local target_file="$target_skills_dir/$rel_path"
             local target_dir="$(dirname "$target_file")"
 
             mkdir -p "$target_dir"
