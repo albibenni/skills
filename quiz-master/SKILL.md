@@ -20,26 +20,30 @@ This skill focuses on verifying understanding through structured, multi-level as
 ## Strict Formatting Requirements
 
 The generated `<topic>_quiz.md` file MUST strictly adhere to the following format so it can be parsed correctly by external tools:
+
 1. **Questions**: Each question must start with its number followed by a period (e.g., `1. What is...?`).
 2. **Options**: The question must be immediately followed by options starting with `A. `, `B. `, `C. `, `D. ` (at least A and B are required).
 3. **Answers Section**: Must be under a heading containing the word `Answers` or `Solutions`.
 4. **Answer Key & Explanation**: Each correct answer must be stated as `1. B` (number, period, letter) and the very next line MUST begin exactly with the keyword `Explanation: `.
 
 Example format:
+
 1. What is the most effective way to prevent SQL Injection?
-A. Using a Web Application Firewall
-B. Using Prepared Statements
-C. Escaping all user input manually
-D. Obfuscating the database schema
+   A. Using a Web Application Firewall
+   B. Using Prepared Statements
+   C. Escaping all user input manually
+   D. Obfuscating the database schema
 
 ## Answers
 
 1. B
-Explanation: Prepared statements ensure that the database treats user input as data, neutralizing SQL injection attacks.
+   Explanation: Prepared statements ensure that the database treats user input as data, neutralizing SQL injection attacks.
 
 ## Guidelines
 
-- **Unpredictable Options**: Avoid patterns that let someone guess the answer without knowing the material. In particular, the correct option must NOT be systematically the longest, most detailed, or most technically-worded choice. Vary which letter (A/B/C/D) holds the correct answer across the quiz, and keep distractors similar in length, specificity, and style to the correct answer. Before finalizing, review the option lengths across all 8 questions and rewrite any where the correct answer stands out.
+- **Complex Options and Plausible Distractors**: The 4 answer options must be complicated and present extremely similar arguments, so that only a thorough and detailed study allows distinguishing them. They must not present the typical patterns of the correct answer (for example, the correct answer must not be visibly longer or more articulate, since the detailed explanation will be provided separately). The options must be indistinguishable in terms of length, syntactic complexity, and scientific style. Randomly vary the letter of the correct answer (A, B, C, or D).
+- **Targeting Misconceptions**: Explicitly design the highly plausible distractors around well-known traps, anti-patterns, or common beginner misunderstandings. This helps effectively diagnose and course-correct flawed mental models.
+- **Scenario-Based Application**: Rather than just testing rote recall of facts (e.g., "What is X?"), frame questions around applying concepts to realistic, novel scenarios (e.g., "Given situation Y, which implementation of X is most appropriate and why?").
 - **Clarity and Simplicity**: Use clear, straightforward language and short sentences for both questions and answers. Avoid overly complex wording, convoluted sentence structures, or jargon where simple terms suffice. Make the text easy to comprehend, but ensure the questions remain challenging by using highly plausible distractors that require true understanding of the material to distinguish from the correct answer. The difficulty should come from the concepts, not the sentence complexity.
 - **Knowledge Over Code Trivia**: Do not ask questions that depend on recalling specific code (variable names, exact values, line-level details) unless that code snippet is included in the question itself. Questions should test understanding of concepts, logic, and principles rather than memory of the source code.
 - **High-Signal Explanations**: When providing answers, explain _why_ the correct choice is right and _why_ others might be misleading. Provide detailed solutions that cover the underlying logic and context.

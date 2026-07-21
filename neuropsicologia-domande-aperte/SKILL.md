@@ -17,11 +17,11 @@ Questo skill ha lo scopo di facilitare lo studio e la preparazione di esami o ap
 
 ## Linee Guida per le Risposte
 
-*   **Struttura in Tre Parti**:
-    *   **Introduzione**: Definisce l'oggetto della domanda, inquadra storicamente o teoricamente l'argomento e fornisce le definizioni di base (es. cos'è l'aprassia ideomotoria).
-    *   **Svolgimento**: È il nucleo centrale della risposta. Deve descrivere i modelli teorici di riferimento (es. modello di Rothi e Heilman), le aree neuroanatomiche coinvolte (es. corteccia parietale sinistra, vie premotorie), le dissociazioni cliniche o sperimentali e i test di valutazione correlati.
-    *   **Conclusione**: Sintetizza brevemente quanto esposto, evidenziando le implicazioni clinico-riabilitative o le prospettive di ricerca future.
-*   **Lunghezza Minima**: Ciascuna risposta deve essere spiegata in modo estremamente approfondito e occupare **almeno 15 righe di testo** complessive. Evita risposte concise o superficiali.
-*   **Esclusione del Codice**: Questo skill è dedicato esclusivamente a materie umanistico-scientifiche e mediche. Non includere frammenti di codice, pseudo-codice o concetti estranei all'ambito neuropsicologico.
-*   **Rigore Scientifico**: Utilizza una terminologia accademica, formale e scientifica appropriata in italiano.
-*   **Accuratezza Clinica**: Radica le risposte nelle teorie consolidate e sui dati clinici del materiale fornito, offrendo spiegazioni basate sulle evidenze scientifiche.
+- **Struttura in Tre Parti**:
+  - **Introduzione**: Definisce l'oggetto della domanda, inquadra storicamente o teoricamente l'argomento e fornisce le definizioni di base (es. cos'è l'aprassia ideomotoria).
+  - **Svolgimento**: È il nucleo centrale della risposta. Deve descrivere i modelli teorici di riferimento (es. modello di Rothi e Heilman), le aree neuroanatomiche coinvolte (es. corteccia parietale sinistra, vie premotorie), le dissociazioni cliniche o sperimentali e i test di valutazione correlati.
+  - **Conclusione**: Sintetizza brevemente quanto esposto, evidenziando le implicazioni clinico-riabilitative o le prospettive di ricerca future.
+- **Lunghezza Minima**: Ciascuna risposta deve essere spiegata in modo estremamente approfondito e occupare **almeno 15 righe di testo** complessive. Evita risposte concise o superficiali.
+- **Esclusione del Codice**: Questo skill è dedicato esclusivamente a materie umanistico-scientifiche e mediche. Non includere frammenti di codice, pseudo-codice o concetti estranei all'ambito neuropsicologico.
+- **Rigore Scientifico**: Utilizza una terminologia accademica, formale e scientifica appropriata in italiano.
+- **Accuratezza Clinica**: Radica le risposte nelle teorie consolidate e sui dati clinici del materiale fornito, offrendo spiegazioni basate sulle evidenze scientifiche.
