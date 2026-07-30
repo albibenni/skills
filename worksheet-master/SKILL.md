@@ -20,7 +20,9 @@ The generated `<topic>.worksheet.md` file MUST strictly adhere to the following 
 1. **Frontmatter**: The file MUST begin with YAML frontmatter containing `type: worksheet` and the `topic`.
 2. **Blank Syntax**: Use double curly braces containing the exact correct answer to denote a blank space: `{{answer}}`.
 3. **No Whitespace Padding**: Do not pad the inside of the braces with spaces. Use `{{code_verifier}}`, not `{{ code verifier }}` (unless the answer itself requires spaces, e.g., `{{Authorization header}}`).
-4. **Context Clues**: Ensure the sentence surrounding the `{{blank}}` provides enough technical context for the user to deduce what goes there.
+4. **Numbered Questions**: Use numbered lists (`1. `, `2. `) to group related steps or individual questions. This allows the frontend to parse and render them into distinct question cards.
+5. **Context Clues**: Ensure the sentence surrounding the `{{blank}}` provides enough technical context for the user to deduce what goes there.
+6. **Explanations**: Provide an explanation at the very end of each numbered question using the syntax `> [!info] Explanation:` or `> Explanation:` followed by the explanation on the same line or subsequent lines.
 
 ### Example Format:
 
@@ -32,11 +34,17 @@ topic: PKCE
 
 # PKCE Authorization Code Flow
 
-1. The client application creates a cryptographically random string called the {{code_verifier}}.
-2. The client then calculates the SHA-256 hash of this string, which is known as the {{code_challenge}}.
-3. The client redirects the user to the authorization server, including the `code_challenge` and setting the `code_challenge_method` to {{S256}}.
-4. After the user logs in, the authorization server redirects back to the client with an {{authorization code}}.
-5. The client sends a POST request to the token endpoint exchanging the authorization code and providing the original {{code_verifier}} to prove its identity.
+1. The client application creates a cryptographically random string called the {{code_verifier}}. The client then calculates the SHA-256 hash of this string, which is known as the {{code_challenge}}.
+
+> [!info] Explanation: The code_verifier acts as a high-entropy secret, and its hash, the code_challenge, is sent to the authorization server to prevent authorization code interception attacks.
+
+2. The client redirects the user to the authorization server, including the `code_challenge` and setting the `code_challenge_method` to {{S256}}.
+
+> [!info] Explanation: S256 indicates that the SHA-256 hash function was used. Plain should generally not be used as it does not hash the verifier.
+
+3. After the user logs in, the authorization server redirects back to the client with an {{authorization code}}. The client sends a POST request to the token endpoint exchanging the authorization code and providing the original {{code_verifier}} to prove its identity.
+
+> [!info] Explanation: The authorization server compares the received code_verifier by hashing it and matching it against the code_challenge it stored earlier.
 ```
 
 ## Guidelines

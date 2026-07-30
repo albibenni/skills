@@ -21,7 +21,9 @@ The generated `<topic>.worksheet.md` file MUST strictly adhere to the following 
 2. **Blank Syntax**: Use double curly braces containing the exact correct answer to denote a blank space: `{{answer}}`.
 3. **No Whitespace Padding**: Do not pad the inside of the braces with spaces. Use `{{SELECT}}`, not `{{ SELECT }}`.
 4. **Context Clues**: Ensure the prompt or comments surrounding the code block provide enough technical context for the user to deduce what goes in the blanks.
-5. **Code Blocks**: The main content of the worksheet should be markdown code blocks (e.g., ```sql or ```javascript), with the blanks inside them.
+5. **Numbered Questions**: Group each exercise into numbered lists (`1. `, `2. `). This ensures the frontend parses and renders each question block separately into its own card.
+6. **Code Blocks**: The main content of the worksheet should be markdown code blocks (e.g., ```sql or ```javascript), with the blanks inside them.
+7. **Explanations**: You MUST provide an explanation at the very end of each numbered question using the syntax `> [!info] Explanation:` or `> Explanation:` followed by the explanation on the same line or subsequent lines.
 
 ### Example Format:
 
@@ -41,6 +43,8 @@ FROM users
 {{LEFT JOIN}} orders {{ON}} users.id = orders.user_id;
 ` ` `
 
+> [!info] Explanation: A LEFT JOIN ensures all records from the 'users' table are returned, even if there are no matching records in the 'orders' table.
+
 2. Find the total number of orders for each user.
 
 ` ` `sql
@@ -49,6 +53,8 @@ FROM users
 JOIN orders ON users.id = orders.user_id
 {{GROUP BY}} users.name;
 ` ` `
+
+> [!info] Explanation: COUNT() is an aggregate function used to count rows. GROUP BY groups the results by the non-aggregated column, in this case, the user's name.
 ```
 *(Note: use standard triple backticks for code blocks, not padded ones as shown in the nested markdown example above).*
 
