@@ -9,9 +9,10 @@ This skill creates "Worksheets" (fill-in-the-blank drills) to verify step-by-ste
 
 ## Workflow
 
-1.  **Analyze Context**: Identify sequential flows, pipelines, code architectures, or step-by-step processes (e.g., OAuth/PKCE flows, CI/CD steps, state machine transitions) in the provided context.
-2.  **Generate Worksheet**: Create a fill-in-the-blank markdown document where critical terms, variables, or steps are replaced with the `{{correct_answer}}` syntax. 
-3.  **Persist**: Write the full document to a file named `<topic>.worksheet.md` in the target folder.
+1.  **Analyze Context**: Identify sequential flows, pipelines, code architectures, or step-by-step processes (e.g., OAuth/PKCE flows, CI/CD steps, state machine transitions) in the provided context (e.g., a source `.md` file).
+2.  **Generate Worksheet**: Create a fill-in-the-blank markdown document where critical terms, variables, or steps are replaced with the `{{correct_answer}}` syntax.
+3.  **Cross-Reference**: Ensure the generated worksheet links back to the original source file, and update the original source file to link to the new worksheet.
+4.  **Persist**: Write the full document to a file named `<topic>.worksheet.md` in the target folder, and save the updates to the original source `.md` file.
 
 ## Strict Formatting Requirements
 
@@ -23,6 +24,7 @@ The generated `<topic>.worksheet.md` file MUST strictly adhere to the following 
 4. **Numbered Questions**: Use numbered lists (`1. `, `2. `) to group related steps or individual questions. This allows the frontend to parse and render them into distinct question cards.
 5. **Context Clues**: Ensure the sentence surrounding the `{{blank}}` provides enough technical context for the user to deduce what goes there.
 6. **Explanations**: Provide an explanation at the very end of each numbered question using the syntax `> [!info] Explanation:` or `> Explanation:` followed by the explanation on the same line or subsequent lines.
+7. **Cross-Referencing**: Include a link at the top of the worksheet pointing back to the original source `.md` file (e.g., `*Generated from: [source.md](path/to/source.md)*`). Additionally, you MUST update the original source `.md` file with a link pointing to the newly generated `.worksheet.md`.
 
 ### Example Format:
 
@@ -33,6 +35,8 @@ topic: PKCE
 ---
 
 # PKCE Authorization Code Flow
+
+*Generated from: [oauth_guide.md](./oauth_guide.md)*
 
 1. The client application creates a cryptographically random string called the {{code_verifier}}. The client then calculates the SHA-256 hash of this string, which is known as the {{code_challenge}}.
 

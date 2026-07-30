@@ -9,9 +9,10 @@ This skill creates "Code Worksheets" (fill-in-the-blank drills) to verify unders
 
 ## Workflow
 
-1.  **Analyze Context**: Identify the coding topic requested by the user (e.g., SQL JOINs, React useEffect, Rust Option matching).
+1.  **Analyze Context**: Identify the coding topic requested by the user (e.g., SQL JOINs, React useEffect, Rust Option matching) from a source `.md` file.
 2.  **Generate Worksheet**: Create a fill-in-the-blank markdown document where critical parts of code snippets or queries are replaced with the `{{correct_answer}}` syntax.
-3.  **Persist**: Write the full document to a file named `<topic>.worksheet.md` in the target folder.
+3.  **Cross-Reference**: Ensure the generated worksheet links back to the original source file, and update the original source file to link to the new worksheet.
+4.  **Persist**: Write the full document to a file named `<topic>.worksheet.md` in the target folder, and save the updates to the original source `.md` file.
 
 ## Strict Formatting Requirements
 
@@ -24,6 +25,7 @@ The generated `<topic>.worksheet.md` file MUST strictly adhere to the following 
 5. **Numbered Questions**: Group each exercise into numbered lists (`1. `, `2. `). This ensures the frontend parses and renders each question block separately into its own card.
 6. **Code Blocks**: The main content of the worksheet should be markdown code blocks (e.g., ```sql or ```javascript), with the blanks inside them.
 7. **Explanations**: You MUST provide an explanation at the very end of each numbered question using the syntax `> [!info] Explanation:` or `> Explanation:` followed by the explanation on the same line or subsequent lines.
+8. **Cross-Referencing**: Include a link at the top of the worksheet pointing back to the original source `.md` file (e.g., `*Generated from: [source.md](path/to/source.md)*`). Additionally, you MUST update the original source `.md` file with a link pointing to the newly generated `.worksheet.md`.
 
 ### Example Format:
 
@@ -34,6 +36,8 @@ topic: SQL_Joins
 ---
 
 # SQL Joins Practice
+
+*Generated from: [sql_joins_guide.md](./sql_joins_guide.md)*
 
 1. Retrieve all users and their corresponding orders. If a user doesn't have an order, still include the user in the result.
 
