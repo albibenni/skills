@@ -19,7 +19,7 @@ This skill creates "Worksheets" (fill-in-the-blank drills) to verify step-by-ste
 The generated `<topic>.worksheet.md` file MUST strictly adhere to the following format so it can be parsed correctly by the Test Yourself application frontend and Rust backend:
 
 1. **Frontmatter**: The file MUST begin with YAML frontmatter containing `type: worksheet` and the `topic`.
-2. **Blank Syntax**: Use double curly braces containing the exact correct answer to denote a blank space: `{{answer}}`.
+2. **Blank Syntax**: Use double curly braces containing the exact correct answer to denote a blank space: `{{answer}}`. You can provide multiple valid answers (synonyms) by separating them with a pipe `|`, e.g., `{{answer1 | answer2}}`.
 3. **No Whitespace Padding**: Do not pad the inside of the braces with spaces. Use `{{code_verifier}}`, not `{{ code verifier }}` (unless the answer itself requires spaces, e.g., `{{Authorization header}}`).
 4. **Numbered Questions**: Use numbered lists (`1. `, `2. `) to group related steps or individual questions. This allows the frontend to parse and render them into distinct question cards.
 5. **Context Clues**: Ensure the sentence surrounding the `{{blank}}` provides enough technical context for the user to deduce what goes there.
