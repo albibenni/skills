@@ -18,6 +18,7 @@ setup-agent-skills() {
         "$HOME/.config/agent"
         "$HOME/.agents"
         "$HOME/.gemini/antigravity-cli"
+        "$HOME/.gemini/config"
         "$HOME/.claude"
     )
 
