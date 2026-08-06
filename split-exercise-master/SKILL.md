@@ -36,4 +36,5 @@ This skill focuses on mastering programming concepts through practical implement
 - **Strict Linting**: Ensure all generated code strictly adheres to modern, up-to-date linting rules for the chosen language.
 - **Strict Mode Compliance**: If using TypeScript, all exercises should assume and follow `strict: true` rules.
 - **Testing Idioms**: Tests should be descriptive. 
+- **Link Formatting**: Never use `file:///` URLs, absolute filesystem paths, or relative paths in `.md` files. When linking between exercise files and solution notes, use Obsidian Wikilinks (e.g., `[[exercise_note]]` or `[[exercise_note|Display Label]]`).
 - **Direct File Modification**: You must write the exercises and solutions directly to the specified paths instead of asking the user to copy-paste.

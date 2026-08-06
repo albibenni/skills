@@ -33,4 +33,5 @@ This skill focuses on mastering TypeScript through practical, type-safe implemen
     - Favor composition and functional patterns.
     - Use descriptive type names.
 - **Testing Idioms**: Tests should be descriptive. Use type-level assertions (like `expectTypeOf`) to verify that types are correctly inferred or constrained.
+- **Link Formatting**: Never use `file:///` URLs, absolute filesystem paths, or relative paths in generated or updated `.md` files. Always use Obsidian Wikilinks (e.g., `[[typescript-exercises]]` or `[[typescript-exercises|Display Label]]`). Both the reference in the generated exercise note and the backlink added to the source note MUST use Obsidian Wikilinks.
 - **Single Copy-Paste Action**: The primary goal is for the user to copy one single block of code from the `.md` file into a `.test.ts` file and have the entire 10-exercise practice suite ready to go.

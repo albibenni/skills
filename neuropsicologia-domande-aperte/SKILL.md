@@ -24,4 +24,5 @@ Questo skill ha lo scopo di facilitare lo studio e la preparazione di esami o ap
 - **Lunghezza Minima**: Ciascuna risposta deve essere spiegata in modo estremamente approfondito e occupare **almeno 15 righe di testo** complessive. Evita risposte concise o superficiali.
 - **Esclusione del Codice**: Questo skill è dedicato esclusivamente a materie umanistico-scientifiche e mediche. Non includere frammenti di codice, pseudo-codice o concetti estranei all'ambito neuropsicologico.
 - **Rigore Scientifico**: Utilizza una terminologia accademica, formale e scientifica appropriata in italiano.
+- **Formattazione dei Link**: Non usare MAI URL `file:///`, percorsi di sistema assoluti o link relativi nei file `.md` generati o modificati. Utilizza esclusivamente la sintassi Wikilink di Obsidian (es. `[[nome_nota]]` o `[[nome_nota|Testo]]`).
 - **Accuratezza Clinica**: Radica le risposte nelle teorie consolidate e sui dati clinici del materiale fornito, offrendo spiegazioni basate sulle evidenze scientifiche.

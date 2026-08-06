@@ -25,7 +25,7 @@ The generated `<topic>.worksheet.md` file MUST strictly adhere to the following 
 5. **Numbered Questions**: Group each exercise into numbered lists (`1. `, `2. `). This ensures the frontend parses and renders each question block separately into its own card.
 6. **Code Blocks**: The main content of the worksheet should be markdown code blocks (e.g., ```sql or ```javascript), with the blanks inside them.
 7. **Explanations**: You MUST provide an explanation at the very end of each numbered question using the syntax `> [!info] Explanation:` or `> Explanation:` followed by the explanation on the same line or subsequent lines.
-8. **Cross-Referencing**: Include a link at the top of the worksheet pointing back to the original source `.md` file (e.g., `*Generated from: [source.md](path/to/source.md)*`). Additionally, you MUST update the original source `.md` file with a link pointing to the newly generated `.worksheet.md`.
+8. **Cross-Referencing**: Include an Obsidian Wikilink at the top of the worksheet pointing back to the original source `.md` file (e.g., `*Generated from: [[source_note]]*`). Additionally, you MUST update the original source `.md` file with an Obsidian Wikilink pointing to the newly generated `.worksheet.md`.
 
 ### Example Format:
 
@@ -37,7 +37,7 @@ topic: SQL_Joins
 
 # SQL Joins Practice
 
-*Generated from: [sql_joins_guide.md](./sql_joins_guide.md)*
+*Generated from: [[sql_joins_guide]]*
 
 1. Retrieve all users and their corresponding orders. If a user doesn't have an order, still include the user in the result.
 
@@ -68,3 +68,4 @@ JOIN orders ON users.id = orders.user_id
 - **Answer Length**: Keep answers inside the `{{}}` relatively short (1 to 4 words). Do not blank out entire lines of code unless it's a very simple and standard pattern, as this becomes too frustrating to guess exactly.
 - **Multiple Blanks**: It is highly encouraged to have multiple blanks in a single snippet if they test related concepts (e.g., both `GROUP BY` and the aggregation function).
 - **Progressive Difficulty**: Start the worksheet with basic syntax, and progressively test deeper implementation details or edge cases as the worksheet goes on.
+- **Link Formatting**: Never use `file:///` URLs, absolute filesystem paths, or relative paths in generated or updated `.md` files. Always use Obsidian Wikilinks (e.g., `[[source_note]]` or `[[worksheet_note]]`). Both the reference at the top of the worksheet and the backlink added to the source `.md` file MUST use Obsidian Wikilinks.

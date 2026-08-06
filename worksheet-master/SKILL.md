@@ -24,7 +24,7 @@ The generated `<topic>.worksheet.md` file MUST strictly adhere to the following 
 4. **Numbered Questions**: Use numbered lists (`1. `, `2. `) to group related steps or individual questions. This allows the frontend to parse and render them into distinct question cards.
 5. **Context Clues**: Ensure the sentence surrounding the `{{blank}}` provides enough technical context for the user to deduce what goes there.
 6. **Explanations**: Provide an explanation at the very end of each numbered question using the syntax `> [!info] Explanation:` or `> Explanation:` followed by the explanation on the same line or subsequent lines.
-7. **Cross-Referencing**: Include a link at the top of the worksheet pointing back to the original source `.md` file (e.g., `*Generated from: [source.md](path/to/source.md)*`). Additionally, you MUST update the original source `.md` file with a link pointing to the newly generated `.worksheet.md`.
+7. **Cross-Referencing**: Include an Obsidian Wikilink at the top of the worksheet pointing back to the original source `.md` file (e.g., `*Generated from: [[source_note]]*`). Additionally, you MUST update the original source `.md` file with an Obsidian Wikilink pointing to the newly generated `.worksheet.md`.
 
 ### Example Format:
 
@@ -36,7 +36,7 @@ topic: PKCE
 
 # PKCE Authorization Code Flow
 
-*Generated from: [oauth_guide.md](./oauth_guide.md)*
+*Generated from: [[oauth_guide]]*
 
 1. The client application creates a cryptographically random string called the {{code_verifier}}. The client then calculates the SHA-256 hash of this string, which is known as the {{code_challenge}}.
 
@@ -57,3 +57,4 @@ topic: PKCE
 - **Answer Length**: Keep answers inside the `{{}}` relatively short (1 to 4 words). Do not blank out entire sentences, as this becomes too frustrating to guess exactly.
 - **Multiple Blanks**: It is highly encouraged to have multiple blanks in a single sentence if they test related concepts.
 - **Progressive Difficulty**: Start the worksheet with basic definitions or the start of a flow, and progressively test deeper implementation details or edge cases as the worksheet goes on.
+- **Link Formatting**: Never use `file:///` URLs, absolute filesystem paths, or relative paths in generated or updated `.md` files. Always use Obsidian Wikilinks (e.g., `[[source_note]]` or `[[worksheet_note]]`). Both the reference at the top of the worksheet and the backlink added to the source `.md` file MUST use Obsidian Wikilinks.
