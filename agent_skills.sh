@@ -2,7 +2,8 @@
 
 # Agent Skills Management
 # Standardizes skill locations for Codex, Antigravity, Gemini, Claude Code, and Omarchy
-# Uses a surgical "File-Level" approach to avoid whole-folder symlinks.
+# Uses surgical file-level links for compatible agents. Codex receives real
+# files because its skill discovery does not load symlinked SKILL.md files.
 
 setup-agent-skills() {
     local GREEN='\033[0;32m'
@@ -15,13 +16,13 @@ setup-agent-skills() {
 
     # Standard paths to surgically populate
     local AGENT_PATHS=(
-        "$HOME/.codex"
         "$HOME/.config/agent"
         "$HOME/.agents"
         "$HOME/.gemini/antigravity-cli"
         "$HOME/.gemini/config"
         "$HOME/.claude"
     )
+    local CODEX_SKILLS_DIR="$HOME/.codex/skills"
 
     echo -e "${BLUE}=== Setting up Agent Skills (Surgical File-Level Symlinks) ===${NC}"
 
@@ -29,6 +30,13 @@ setup-agent-skills() {
         echo -e "  ${RED}✗${NC} Source directory not found: $SKILLS_SOURCE"
         return 1
     fi
+
+    # Codex needs physical skill files rather than symlinked files.
+    if [[ -L "$CODEX_SKILLS_DIR" ]]; then
+        echo -e "  ${YELLOW}→${NC} Unlinking folder symlink at $CODEX_SKILLS_DIR"
+        unlink "$CODEX_SKILLS_DIR"
+    fi
+    mkdir -p "$CODEX_SKILLS_DIR"
 
     # 1. Prepare target directories
     for base_path in "${AGENT_PATHS[@]}"; do
@@ -59,6 +67,17 @@ setup-agent-skills() {
 
         echo -e "  ${BLUE}Surgically linking: ${NC}$rel_path"
 
+        # Materialize Codex files. Remove an old file-level symlink first so
+        # cp does not follow it and write back into the source skill.
+        local codex_target="$CODEX_SKILLS_DIR/$rel_path"
+        mkdir -p "$(dirname "$codex_target")"
+        rm -f "$codex_target"
+        if cp "$source_file" "$codex_target"; then
+            echo -e "    ${GREEN}✓${NC} Copied to codex"
+        else
+            echo -e "    ${RED}✗${NC} Failed to copy to codex"
+        fi
+
         for base_path in "${AGENT_PATHS[@]}"; do
             local target_skills_dir="$base_path/skills"
             local target_skills_real=$(readlink -f "$target_skills_dir" 2>/dev/null || echo "")
@@ -80,7 +99,7 @@ setup-agent-skills() {
         done
     done < <(find "$SKILLS_SOURCE" -type f -not -path '*/.git*' -print0)
 
-    echo -e "\n${GREEN}Done! Individual skill files linked surgically across all paths.${NC}"
+    echo -e "\n${GREEN}Done! Codex files copied; other agent paths linked surgically.${NC}"
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
