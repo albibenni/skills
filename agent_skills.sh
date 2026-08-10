@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Agent Skills Management
-# Standardizes skill locations for Antigravity, Gemini, Claude Code, and Omarchy
+# Standardizes skill locations for Codex, Antigravity, Gemini, Claude Code, and Omarchy
 # Uses a surgical "File-Level" approach to avoid whole-folder symlinks.
 
 setup-agent-skills() {
@@ -15,6 +15,7 @@ setup-agent-skills() {
 
     # Standard paths to surgically populate
     local AGENT_PATHS=(
+        "$HOME/.codex"
         "$HOME/.config/agent"
         "$HOME/.agents"
         "$HOME/.gemini/antigravity-cli"
