@@ -12,7 +12,8 @@ This skill creates "Code Worksheets" (fill-in-the-blank drills) to verify unders
 1.  **Analyze Context**: Identify the coding topic requested by the user (e.g., SQL JOINs, React useEffect, Rust Option matching) from a source `.md` file.
 2.  **Generate Worksheet**: Create a fill-in-the-blank markdown document where critical parts of code snippets or queries are replaced with the `{{correct_answer}}` syntax.
 3.  **Cross-Reference**: Ensure the generated worksheet links back to the original source file, and update the original source file to link to the new worksheet.
-4.  **Persist**: Write the full document to a file named `<topic>.worksheet.md` in the target folder, and save the updates to the original source `.md` file.
+4.  **Test Yourself Links**: After the worksheet is created, automatically add `[Test Yourself](obsidian://open?vault=<vault-name>&file=<URL-encoded vault-relative path>)` to both the generated worksheet and its source explanation note. Derive the URI from the worksheet's actual final location; the link always opens that worksheet in the Test Yourself app, including when followed from the source note.
+5.  **Persist**: Write the full document to a file named `<topic>.worksheet.md` in the target folder, and save the updates to the original source `.md` file.
 
 ## Strict Formatting Requirements
 
@@ -69,3 +70,4 @@ JOIN orders ON users.id = orders.user_id
 - **Multiple Blanks**: It is highly encouraged to have multiple blanks in a single snippet if they test related concepts (e.g., both `GROUP BY` and the aggregation function).
 - **Progressive Difficulty**: Start the worksheet with basic syntax, and progressively test deeper implementation details or edge cases as the worksheet goes on.
 - **Link Formatting**: Never use `file:///` URLs, absolute filesystem paths, or relative paths in generated or updated `.md` files. Always use Obsidian Wikilinks (e.g., `[[source_note]]` or `[[worksheet_note]]`). Both the reference at the top of the worksheet and the backlink added to the source `.md` file MUST use Obsidian Wikilinks.
+- **Test Yourself URI**: The Test Yourself link is the sole exception to the Wikilink rule. URL-encode the entire vault-relative worksheet path (including `/`), never an absolute filesystem path. Add the same generated-file URI once to the worksheet and once to the source explanation note; avoid duplicates.

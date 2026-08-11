@@ -38,4 +38,5 @@ This skill focuses on delivering a deep conceptual understanding, strategic sugg
   - **TypeScript**: Prefer `const`, arrow functions, and structural typing. Use `strict` types.
   - **Other Languages**: Strictly follow the idiomatic conventions of the detected language (e.g., PEP 8 for Python, standard formatting for Go).
 - **Markdown Link Formatting**: Never use `file:///` URLs, absolute filesystem paths, or relative paths in Markdown notes or documentation. Always use Obsidian Wikilinks (e.g., `[[note_name]]` or `[[note_name|Display Text]]`).
+- **Generated Exercise Links**: When a companion quiz or worksheet is generated from an explanation note, that generator adds a `Test Yourself` Markdown deep link to both files. This base skill does not construct the link because the generated file's final vault-relative path is not yet known.
 - **Default Language**: When the context is general, always provide TypeScript examples.

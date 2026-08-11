@@ -15,7 +15,8 @@ This skill focuses on verifying understanding through structured, multi-level as
     - **3 Intermediate**: Application of concepts, logical flow, and relationships between components.
     - **2 Advanced**: Edge cases, architectural implications, and complex dependencies.
 3.  **Present and Persist Quiz**: Display the questions clearly with options A, B, C, and D. Simultaneously, write the full quiz (questions and options) to a file named `<topic>_quiz.md` in the target folder. Include a reference (e.g., a link) to the corresponding exercise file. Additionally, update the original file that was the subject of the quiz to include a reference (e.g., a link) pointing to this newly created `<topic>_quiz.md` file.
-4.  **Evaluate with Detailed Solutions**: At the bottom of the file, provide the answers key under a heading named `## Answers`. Each answer must state the question number and the correct letter (e.g., `1. B`), followed immediately by a line starting exactly with `Explanation: ` that explains the reasoning.
+4.  **Test Yourself Links**: After the quiz is created, automatically add `[Test Yourself](obsidian://open?vault=<vault-name>&file=<URL-encoded vault-relative path>)` to both the generated quiz and its source explanation note. Derive the URI from the quiz's actual final location; the link always opens that quiz in the Test Yourself app, including when followed from the source note.
+5.  **Evaluate with Detailed Solutions**: At the bottom of the file, provide the answers key under a heading named `## Answers`. Each answer must state the question number and the correct letter (e.g., `1. B`), followed immediately by a line starting exactly with `Explanation: ` that explains the reasoning.
 
 ## Strict Formatting Requirements
 
@@ -50,3 +51,4 @@ Example format:
 - **Contextual Accuracy**: Ensure all questions are grounded in the provided context, avoiding generic external knowledge unless relevant.
 - **Persistence**: Always ensure the quiz and its solutions are documented in the target folder using the format `<topic>_quiz.md` (e.g., `bash_quiz.md`) to facilitate long-term knowledge retention.
 - **Link Formatting**: Never use `file:///` URLs, absolute filesystem paths, or relative paths in generated or updated `.md` files. Always use Obsidian Wikilinks (e.g., `[[topic_quiz]]` or `[[topic_quiz|Display Label]]`). Both the reference inside the generated `<topic>_quiz.md` file and the reference added to the original source `.md` file MUST use Obsidian Wikilinks.
+- **Test Yourself URI**: The Test Yourself link is the sole exception to the Wikilink rule. URL-encode the entire vault-relative quiz path (including `/`), never an absolute filesystem path. For example: `[Test Yourself](obsidian://open?vault=SecondBrain&file=Computer%20Science%2FDesign%20and%20Systems%2FDesign%20Pattern%2FExercises%20and%20quizes%2FFactory-Quiz.md)`. Add one link per file and avoid duplicates.
