@@ -5,27 +5,54 @@ description: Genera un quiz personalizzato a scelta multipla su argomenti di neu
 
 # Neuropsicologia Quiz Master
 
-Questo skill ha lo scopo di verificare e consolidare la comprensione di concetti, modelli teorici e sindromi cliniche nell'ambito della neuropsicologia attraverso quiz a scelta multipla personalizzati e strutturati.
+Crea quiz a scelta multipla in italiano per verificare e consolidare concetti, modelli teorici e sindromi cliniche di neuropsicologia.
 
 ## Workflow
 
-1.  **Determinazione del Numero di Domande**: Identifica o chiedi all'utente il numero desiderato di domande per il quiz. Se l'utente non lo specifica, chiedi esplicitamente quante domande desidera prima di procedere, oppure proponi un numero predefinito (es. 10 domande) chiedendo conferma.
-2.  **Analisi del Contesto**: Esamina il materiale fornito (dispense, note, testi di riferimento o contesto corrente) per individuare i temi chiave di neuropsicologia (ad esempio: afasie, aprassie, agnosie, memoria, funzioni esecutive, eminegligenza spaziale unilaterale, basi neuroanatomiche, test di valutazione neuropsicologica, ecc.).
-3.  **Generazione delle Domande**: Crea il numero specificato di domande a scelta multipla (A, B, C, D) distribuendole in modo equilibrato tra:
-    - **Nozioni Fondamentali**: Definizioni di base, terminologia clinica, aree cerebrali principali.
-    - **Livello Intermedio (Clinico/Funzionale)**: Associazione tra lesioni e deficit, interpretazione di sintomi e dissociazioni (semplici e doppie), applicazione di modelli cognitivi.
-    - **Livello Avanzato (Diagnostica e Modelli)**: Casi clinici complessi, diagnosi differenziale, implicazioni di modelli teorici e interpretazione fine di test neuropsicologici.
-    - _Nota_: **Nessuna** domanda o risposta deve contenere codice di programmazione, terminologia informatica o esempi tecnologici estranei alla disciplina.
-4.  **Presentazione e Salvataggio del Quiz**: Mostra le domande all'utente con le opzioni A, B, C e D. Salva contemporaneamente il quiz completo in un file chiamato `<argomento>_quiz_neuro.md` nella cartella di destinazione per consentire la persistenza dello studio.
-5.  **Correzione con Spiegazioni Dettagliate**: Fornisci le soluzioni descrivendo non solo qual è la risposta corretta, ma spiegando anche il razionale scientifico/clinico sottostante e il motivo per cui gli altri distrattori sono errati o imprecisi.
+1. **Determina il numero di domande**: Usa il numero indicato dall'utente. Se non è specificato, chiedilo oppure proponi 10 domande e chiedi conferma prima di procedere.
+2. **Analizza il contesto**: Individua concetti, relazioni causali, dissociazioni, diagnosi differenziali, compromessi diagnostici, basi neuroanatomiche e principali errori interpretativi da trattenere. Basa le domande sul materiale fornito; evita conoscenze esterne generiche se non pertinenti.
+3. **Genera una copertura graduata**: Crea il numero richiesto di domande a scelta multipla con opzioni A–D. Distribuiscile in modo proporzionato tra:
+   - **Fondamentali**: terminologia, definizioni, funzioni cognitive e principali correlati anatomici.
+   - **Intermedie clinico-funzionali**: associazioni lesione-deficit, sintomi, dissociazioni e applicazione di modelli cognitivi.
+   - **Avanzate diagnostico-teoriche**: casi clinici, diagnosi differenziale, interpretazione fine dei test e implicazioni dei modelli.
+   Per quiz brevi, conserva almeno una domanda per ogni livello quando possibile. Non includere codice, terminologia informatica o esempi tecnologici estranei alla disciplina.
+4. **Scrivi quesiti compatti**: Esprimi prima il punto decisionale. Usa una frase per domanda e una seconda breve frase solo se serve a fornire il contesto clinico essenziale. Mantieni ogni opzione su una riga, parallela nella struttura e di lunghezza comparabile; verifica che la risposta corretta non sia deducibile dalla formulazione o dalla sua lunghezza.
+5. **Presenta e salva il quiz**: Mostra le opzioni A, B, C e D e salva quiz e soluzioni in `<argomento>_quiz_neuro.md` nella cartella di destinazione. Collega il quiz e la nota sorgente tramite Wikilink Obsidian; aggiungi un link a un file di esercizi solo se esiste ed è pertinente.
+6. **Aggiungi i link Test Yourself**: Inserisci un solo link `[Test Yourself](test-yourself://open?quiz=<percorso-relativo-al-vault-codificato-URL>)` sia nel quiz sia nella nota sorgente. Ricava il percorso dalla posizione finale effettiva del quiz.
+7. **Correggi con soluzioni dettagliate**: Alla fine del file aggiungi `## Risposte`. Per ciascun quesito, indica numero e lettera corretta (per esempio, `1. B`) e, nella riga immediatamente successiva, inserisci `Spiegazione: ` come primi caratteri della riga. Illustra il razionale clinico-scientifico e perché i distrattori risultano errati o fuorvianti.
 
-## Linee Guida
+## Requisiti rigorosi di formattazione
 
-- **Opzioni Complesse e Distrattori Plausibili**: Le 4 opzioni di risposta devono essere complicate e presentare argomenti estremamente simili tra loro, in modo che solo uno studio approfondito e dettagliato permetta di distinguerle. Non devono presentare i pattern tipici della risposta esatta (ad esempio, la risposta corretta non deve essere visibilmente più lunga o articolata, poiché la spiegazione dettagliata sarà fornita a parte). Le opzioni devono essere indistinguibili per lunghezza, complessità sintattica e stile scientifico. Varia in modo casuale la lettera della risposta corretta (A, B, C o D).
-- **Mirare ai Fraintendimenti (Targeting Misconceptions)**: Progetta esplicitamente i distrattori plausibili basandoti su trabocchetti noti, false credenze o i classici errori di interpretazione diagnostica. Questo aiuta a diagnosticare efficacemente e correggere modelli mentali errati.
-- **Applicazione basata su Scenari Clinici**: Invece di testare solo il richiamo mnemonico di nozioni (es. "Cos'è l'afasia di Broca?"), formula le domande focalizzandoti sull'applicazione dei concetti a scenari clinici realistici e inediti (es. "Dato il paziente con quadro sintomatologico Y e lesione all'area Z, quale test diagnostico è più appropriato somministrare e perché?").
-- **Chiarezza e Precisione Terminologica**: Utilizza una terminologia neuropsicologica e medica accurata in lingua italiana. Formula le domande in modo chiaro ed evita ambiguità linguistiche; la difficoltà del quiz deve risiedere nei concetti clinici e anatomici, non nella complessità o oscurità della frase.
-- **Esclusione Totale del Codice**: Questo skill è strettamente umanistico-scientifico/clinico. Non inserire snippet di codice, pseudo-codice o analogie informatiche.
-- **Spiegazioni ad Alto Valore Formativo**: Le risposte corrette devono essere accompagnate da spiegazioni che richiamano i modelli di riferimento (es. modelli di memoria di Baddeley, modello di attenzione di Posner, modelli di lettura, ecc.) e le correlazioni neuroanatomiche (es. lobo parietale, corteccia prefrontale dorsolaterale, ecc.).
-- **Formattazione dei Link**: Non usare MAI URL `file:///`, percorsi di sistema assoluti o link relativi nei file `.md` generati o modificati. Utilizza esclusivamente la sintassi Wikilink di Obsidian (es. `[[nome_nota]]` o `[[nome_nota|Testo]]`).
-- **Accuratezza Clinica e Scientifica**: Assicurati che ogni domanda sia coerente con le attuali conoscenze neuropsicologiche e con il materiale fornito dall'utente.
+Il file `<argomento>_quiz_neuro.md` DEVE rispettare esattamente questo formato per consentirne l'analisi da strumenti esterni:
+
+1. **Domande**: Ogni domanda inizia con il numero seguito da un punto, ad esempio `1. Quale deficit ...?`.
+2. **Opzioni**: La domanda è seguita immediatamente da opzioni che iniziano con `A. `, `B. `, `C. ` e `D. `; sono obbligatorie almeno A e B.
+3. **Sezione delle risposte**: Usa un'intestazione che contenga `Risposte` o `Soluzioni`.
+4. **Chiave ed esplicazione**: Indica ogni soluzione come `1. B` e fai iniziare la riga immediatamente successiva, senza spazi iniziali, esattamente con `Spiegazione: `.
+
+Esempio di formato:
+
+```markdown
+1. In un paziente con eminegligenza spaziale sinistra, quale comportamento è più atteso?
+   A. Omettere stimoli nello spazio extrapersonale sinistro
+   B. Perdere selettivamente la sensibilità dolorifica destra
+   C. Non comprendere le istruzioni verbali semplici
+   D. Confondere i volti familiari con quelli sconosciuti
+
+## Risposte
+
+1. A
+Spiegazione: L'eminegligenza sinistra comporta una ridotta esplorazione e rappresentazione dello spazio controlaterale alla lesione, spesso associata a danno parietale destro.
+```
+
+## Linee guida
+
+- **Rapido da leggere**: Parti dalla domanda, non da una lunga premessa. Usa verbi concreti e terminologia neuropsicologica familiare; elimina il contesto non necessario alla scelta. Non usare quesiti in forma di paragrafo né opzioni su più righe.
+- **Difficile per la giusta ragione**: Fai dipendere la difficoltà da una distinzione clinicamente rilevante: condizione limite, direzione causale, dissociazione, diagnosi differenziale, sequenza di valutazione, fallimento del test o quasi-fraintendimento. Non renderlo difficile con formulazioni dense o ambigue.
+- **Distrattori plausibili e bilanciati**: Deriva le alternative errate da misconcezioni realistiche, quadri clinici vicini o interpretazioni quasi corrette. Mantieni opzioni parallele per grammatica, dettaglio e lunghezza approssimativa. La risposta corretta non deve essere l'unica più lunga, precisa o qualificata. Varia in modo non prevedibile le risposte corrette tra A–D.
+- **Applica la comprensione**: Privilegia scenari clinici minimi e realistici quando cambiano la risposta; ricorri al puro richiamo solo per terminologia o fatti davvero fondamentali. Evita di duplicare lo stesso concetto in più domande.
+- **Copertura importante**: Dai priorità a funzioni cognitive, relazioni lesione-deficit, modelli, invarianti diagnostiche, correlati neuroanatomici e comuni errori di interpretazione. Evita curiosità marginali.
+- **Spiegazioni ad alto valore formativo**: Spiega perché la soluzione è corretta e perché le alternative possono sembrare plausibili ma sono errate. Richiama, quando pertinente, modelli di riferimento e correlazioni neuroanatomiche.
+- **Accuratezza clinica e contestuale**: Usa terminologia medica accurata in italiano e mantieni ogni quesito coerente con le conoscenze neuropsicologiche attuali e con il materiale dell'utente.
+- **Esclusione totale del codice**: Non inserire snippet di codice, pseudocodice, terminologia informatica o analogie informatiche.
+- **Persistenza e link**: Salva il file come `<argomento>_quiz_neuro.md`. Nei file Markdown non usare URL `file:///`, percorsi assoluti o relativi: usa solo Wikilink Obsidian, eccetto il singolo link `test-yourself://` richiesto sopra. Non duplicare i link Test Yourself.
