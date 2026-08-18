@@ -44,7 +44,7 @@ Build an assessment that distinguishes recall from genuine understanding. Combin
 
 ## App File Contract
 
-When creating a scenario lab for Test Yourself, write it as `<filename>.scenario.md` beside the related note. Use this structure so the app can keep the solution hidden until the learner reveals it:
+When creating a scenario lab for Test Yourself, write it as `Exercises and Quiz/<filename>.scenario.md` under the related note's folder. If `Exercises and Quiz` does not exist, create it. Use this structure so the app can keep the solution hidden until the learner reveals it:
 
 ```markdown
 ---
