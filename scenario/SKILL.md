@@ -1,9 +1,9 @@
 ---
-name: understanding-assessment
+name: scenario
 description: Create complementary quizzes, reconstruction worksheets, and scenario-based labs from learning material. Use when asked to test, teach, assess, or verify genuine understanding of a concept, technical note, article, design, system, or implementation—not just factual recall.
 ---
 
-# Understanding Assessment
+# Scenario
 
 ## Overview
 
