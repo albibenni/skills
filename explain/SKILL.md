@@ -9,7 +9,7 @@ This skill focuses on delivering a deep conceptual understanding, strategic sugg
 
 ## Context Awareness
 
-1.  **Language Detection**: Analyze the target `file_path` or current working directory:
+1.  **Programming Language Detection**: Analyze the target `file_path` or current working directory:
     - If the path implies a specific language (e.g., contains `.py`, `/python/`, `.rs`, `/rust/`, `.cpp`, etc.), prioritize that language for the implementation.
     - If the path is general (e.g., `/Concepts/`, `/Documentation/`) or the language is ambiguous, default to **TypeScript**.
 2.  **Overrides**: If the user explicitly requests a specific language, follow that request regardless of the path.
@@ -18,7 +18,7 @@ This skill focuses on delivering a deep conceptual understanding, strategic sugg
 ## Workflow
 
 1.  **Conceptual Explanation**: Start with a high-level "clear explanation" of the concept, pattern, or logic. Focus on the _intent_ and _rationale_. Use analogies if they help clarify complex topics.
-2.  **In-depth Analysis**: Provide a deeper dive into the technical details, trade-offs, and edge cases. Explain *why* certain approaches are preferred over others in specific contexts (e.g., performance, scalability, maintainability).
+2.  **In-depth Analysis**: Provide a deeper dive into the technical details, trade-offs, and edge cases. Explain _why_ certain approaches are preferred over others in specific contexts (e.g., performance, scalability, maintainability).
 3.  **Suggestions**: Offer proactive advice or alternative patterns that might be relevant to the user's likely goals.
 4.  **Implementation Strategy**: Briefly outline how the concept translates into code before showing the examples.
 5.  **Code Implementation**:
