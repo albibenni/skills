@@ -1,6 +1,6 @@
 ---
 name: quiz-master
-description: Generates an 8-question multiple-choice quiz that checks understanding of concepts, logic, and important details from the current context. Use for self-assessment and knowledge reinforcement, especially when the quiz should be concise, difficult, and saved as a Markdown note.
+description: Generates an adaptive-length multiple-choice quiz that checks understanding of concepts, logic, and important details from the current context. Use for self-assessment and knowledge reinforcement, especially when the quiz should be concise, difficult, saved as a Markdown note, and sized to the topic unless the user specifies a fixed count.
 ---
 
 # Quiz Master
@@ -9,15 +9,19 @@ Create concise, high-discrimination quizzes. Make each item fast to scan while m
 
 ## Workflow
 
-1. **Analyze Context**: Identify the concepts, causal relationships, trade-offs, and failure modes most worth retaining. Prefer important ideas over incidental details.
-2. **Generate Questions**: Create exactly 8 multiple-choice questions:
-    - **3 Foundational**: Basic concepts, terminology, and definitions.
-    - **3 Intermediate**: Application of concepts, logical flow, and relationships between components.
-    - **2 Advanced**: Edge cases, architectural implications, and complex dependencies.
-3. **Write Compact Items**: State the decision point first. Aim for one sentence per question; use a second short sentence only when it supplies essential scenario context. Keep each option to one line, parallel in structure, and closely matched in length. Before finalizing each item, compare the correct option with every distractor and shorten or expand wording until correctness cannot be inferred from length.
-4. **Present and Persist Quiz**: Display options A through D and write the full quiz to `<topic>_quiz.md` in the target folder. Link the generated quiz and its source note using Obsidian Wikilinks. Add an exercise-file link only when such a file exists and is relevant.
-5. **Add Test Yourself Links**: Add one `[Test Yourself](test-yourself://open?quiz=<URL-encoded vault-relative path>)` link to both the quiz and its source note. Derive the path from the quiz's actual final location.
-6. **Evaluate with Detailed Solutions**: At the bottom of the file, add `## Answers`. For every answer, state the question number and correct letter (for example, `1. B`), followed immediately by a line starting exactly with `Explanation: `.
+1. **Analyze Context**: Identify the concepts, causal relationships, trade-offs, failure modes, and independent key arguments worth retaining. Prefer important ideas over incidental details.
+2. **Choose Quiz Length**: If the user requests a fixed number of questions, use it exactly and do not make a separate recommendation. Otherwise, recommend and use a count from 4 to 16 after assessing topic scope, conceptual complexity, and the number of independent key arguments:
+    - **4–5**: A narrow topic with one or two tightly connected ideas.
+    - **6–7**: A focused topic with several important concepts or one moderate workflow.
+    - **8–10**: A standard note covering multiple concepts, relationships, or trade-offs.
+    - **11–13**: A broad or technically complex topic with several independent arguments, workflows, or failure modes.
+    - **14–16**: A comprehensive, highly interconnected topic where fewer questions would leave central arguments untested.
+    Count distinct learn-worthy ideas rather than headings or document length. Increase within a band for dependencies, exceptions, trade-offs, and failure modes; do not add questions merely to cover minor details. State the recommendation and one brief reason before presenting the quiz.
+3. **Generate Questions**: Cover foundational, intermediate, and advanced understanding in proportion to the selected count. For 4–5 questions, include at least 2 foundational and 1 intermediate item; for 6–9, aim for roughly 3 foundational, 3 intermediate, and the remainder advanced; for 10–16, use roughly one-third foundational, two-fifths intermediate, and the remainder advanced. Ensure every central independent argument is tested at least once without duplicating ideas.
+4. **Write Compact Items**: State the decision point first. Aim for one sentence per question; use a second short sentence only when it supplies essential scenario context. Keep each option to one line, parallel in structure, and closely matched in length. Before finalizing each item, compare the correct option with every distractor and shorten or expand wording until correctness cannot be inferred from length.
+5. **Present and Persist Quiz**: Display options A through D and write the full quiz to `<topic>_quiz.md` in the target folder. Link the generated quiz and its source note using Obsidian Wikilinks. Add an exercise-file link only when such a file exists and is relevant.
+6. **Add Test Yourself Links**: Add one `[Test Yourself](test-yourself://open?quiz=<URL-encoded vault-relative path>)` link to both the quiz and its source note. Derive the path from the quiz's actual final location.
+7. **Evaluate with Detailed Solutions**: At the bottom of the file, add `## Answers`. For every answer, state the question number and correct letter (for example, `1. B`), followed immediately by a line starting exactly with `Explanation: `.
 
 ## Strict Formatting Requirements
 
