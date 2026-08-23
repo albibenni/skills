@@ -1,42 +1,36 @@
 ---
 name: explain
-description: Provides clear, high-signal explanations of code, concepts, or architectures, including in-depth analysis, suggestions, and relevant links, followed by idiomatic code examples in TypeScript. Triggered when the user asks "explain," "how does X work," or "what is the best way to implement Y."
+description: Explains code, concepts, and architectures at an appropriate depth, prioritizing conceptual understanding with optional illustrative examples. Use when the user asks to explain something, understand how it works, or choose an implementation approach.
 ---
 
 # Explain
 
-This skill focuses on delivering a deep conceptual understanding, strategic suggestions, and relevant resources followed by concrete, language-appropriate implementations.
+This skill helps the user understand a topic before deciding what to build. Prioritize concepts, mechanisms, and decision-making; treat code as an optional illustration rather than the subject of the response unless the user asks for implementation help.
 
 ## Context Awareness
 
-1.  **Programming Language Detection**: Analyze the target `file_path` or current working directory:
-    - If the path implies a specific language (e.g., contains `.py`, `/python/`, `.rs`, `/rust/`, `.cpp`, etc.), prioritize that language for the implementation.
-    - If the path is general (e.g., `/Concepts/`, `/Documentation/`) or the language is ambiguous, default to **TypeScript**.
-2.  **Overrides**: If the user explicitly requests a specific language, follow that request regardless of the path.
-3.  **Target Location Identification**: Understand the context of the topic explained. Given a directory (or defaulting to the current workspace), search for the best spot to write the explanation or implementation into.
+1. **Depth**: Infer whether the user wants a brief answer, a deep dive, implementation advice, or a code walkthrough. Ask only when the distinction materially changes the result.
+2. **Language**: Honor an explicit language request. Otherwise, infer the language from supplied code or the relevant project when an example is useful. With no language context, use concise pseudocode or TypeScript—whichever makes the concept clearest.
+3. **Repository context**: Inspect relevant supplied files or project conventions before giving implementation-specific advice. Do not search for a destination or modify project files unless the user asks to write documentation or implement a change.
 
 ## Workflow
 
-1.  **Conceptual Explanation**: Start with a high-level "clear explanation" of the concept, pattern, or logic. Focus on the _intent_ and _rationale_. Use analogies if they help clarify complex topics.
-2.  **In-depth Analysis**: Provide a deeper dive into the technical details, trade-offs, and edge cases. Explain _why_ certain approaches are preferred over others in specific contexts (e.g., performance, scalability, maintainability).
-3.  **Suggestions**: Offer proactive advice or alternative patterns that might be relevant to the user's likely goals.
-4.  **Implementation Strategy**: Briefly outline how the concept translates into code before showing the examples.
-5.  **Code Implementation**:
-    - If a specific language was detected in Context Awareness, provide one idiomatic example in that language.
-    - Otherwise, provide the **Default Language**: one concise, idiomatic TypeScript example.
-6.  **Comparative Summary**: A short bulleted list of key takeaways or language-specific nuances.
-7.  **Additional Resources**: Provide 2-3 high-quality links (official docs, seminal blog posts, or RFCs) for further reading.
-8.  **Contextual Writing**: If the task involves writing the explanation or implementation into the project, navigate to the target location identified in Context Awareness and integrate the content smoothly (e.g., adding a markdown file, updating a README, or inserting code into the appropriate module).
+1. Explain the intent, mechanics, and rationale in plain language. Use an analogy only when it genuinely improves clarity.
+2. Cover trade-offs, alternatives, limitations, and edge cases that affect the user's decision; omit incidental detail.
+3. Give practical next steps when they follow naturally from the request.
+4. Provide implementation strategy or a small, idiomatic example only when it clarifies the topic or the user asks for it. Keep code focused on illustrating the concept, not on language-specific style rules.
+5. End with a short key-takeaways list when it improves scanability.
+6. Provide authoritative external resources for version-sensitive, disputed, or advanced topics, or when the user asks for sources. Prefer primary documentation, specifications, and papers.
+7. Write or update project documentation only with explicit user authorization.
 
 ## Guidelines
 
-- **Up-to-Date Research**: Always prioritize the latest documentation and best practices as of the current date (refer to session context). Verify that suggested patterns or APIs have not been deprecated or superseded.
+- **Current guidance**: Verify official documentation for version-sensitive APIs, security guidance, framework advice, or when the user requests current recommendations. Do not add research overhead to stable conceptual explanations.
 - **Clarity First**: Ensure the text explanation can stand alone before the user even looks at the code.
 - **Analytical Depth**: In the analysis phase, don't just state facts; explain the underlying mechanics and implications.
 - **Actionable Suggestions**: Ensure suggestions are practical and directly applicable to common development scenarios.
-- **Idiomatic Code**:
-  - **TypeScript**: Prefer `const`, arrow functions, and structural typing. Use `strict` types.
-  - **Other Languages**: Strictly follow the idiomatic conventions of the detected language (e.g., PEP 8 for Python, standard formatting for Go).
-- **Markdown Link Formatting**: Never use `file:///` URLs, absolute filesystem paths, or relative paths in Markdown notes or documentation. Always use Obsidian Wikilinks (e.g., `[[note_name]]` or `[[note_name|Display Text]]`).
-- **Generated Exercise Links**: When a companion quiz or worksheet is generated from an explanation note, that generator adds a `Test Yourself` Markdown deep link to both files. This base skill does not construct the link because the generated file's final vault-relative path is not yet known.
-- **Default Language**: When the context is general, always provide TypeScript examples.
+- **Illustrative code**: Keep examples minimal, correct, and idiomatic for the relevant language. Explain the ideas expressed by the code; do not turn a conceptual answer into a style guide or enforce TypeScript-specific conventions unless the user asks.
+- **Obsidian note context**: When creating or materially updating a note in the user's vault, inspect only the nearest relevant notes: the target folder, its parent or index note when present, and a small number of direct topic matches. Stop once enough verified links are found; do not perform broad vault-wide reading. Add only useful vault-relative links in the form `[[<note_path>]]` (or `[[<note_path>|Display Text]]`). Do not invent targets, link unrelated notes, or perform this scan for answers that are not being written into the vault. Use paths without the `.md` extension unless the vault's established convention uses extensions.
+- **Markdown links**: In vault notes, use Obsidian wikilinks for internal notes; use normal HTTPS Markdown links for external sources. Never use `file:///` URLs or absolute filesystem paths in generated notes.
+- **Companion learning materials**: When another requested workflow creates companion quizzes or worksheets, add or coordinate links only after their final vault-relative paths are known.
+- **No forced code**: A conceptual explanation does not need an example solely because this skill is active.
