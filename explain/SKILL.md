@@ -25,6 +25,7 @@ This skill helps the user understand a topic before deciding what to build. Prio
 
 ## Guidelines
 
+- **Vault note language**: Write every vault note created or materially updated with this skill in English. Keep code identifiers, quotations, and established proper names unchanged where appropriate.
 - **Current guidance**: Verify official documentation for version-sensitive APIs, security guidance, framework advice, or when the user requests current recommendations. Do not add research overhead to stable conceptual explanations.
 - **Clarity First**: Ensure the text explanation can stand alone before the user even looks at the code.
 - **Analytical Depth**: In the analysis phase, don't just state facts; explain the underlying mechanics and implications.
