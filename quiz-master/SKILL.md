@@ -9,7 +9,7 @@ Create concise, high-discrimination quizzes. Make each item fast to scan while m
 
 ## Workflow
 
-1. **Analyze Context**: Identify the concepts, causal relationships, trade-offs, failure modes, and independent key arguments worth retaining. Prefer important ideas over incidental details.
+1. **Analyze Context and Language**: Identify the concepts, causal relationships, trade-offs, failure modes, and independent key arguments worth retaining. Prefer important ideas over incidental details. When a source document is provided or referenced, infer its primary natural language from the document's substantive content and write the quiz, answers, explanations, and added source-note links in that language. An explicitly requested output language overrides the inferred language. If the source is genuinely multilingual with no clear primary language, ask the user which language to use.
 2. **Choose Quiz Length**: If the user requests a fixed number of questions, use it exactly and do not make a separate recommendation. Otherwise, recommend and use a count from 4 to 16 after assessing topic scope, conceptual complexity, and the number of independent key arguments:
     - **4–5**: A narrow topic with one or two tightly connected ideas.
     - **6–7**: A focused topic with several important concepts or one moderate workflow.
@@ -54,6 +54,7 @@ Example format:
 - **Important Coverage**: Prioritize core concepts, relationships, invariants, trade-offs, and common failure modes. Avoid trivia, duplicated ideas, and source-code details unless the relevant snippet appears in the question.
 - **High-Signal Explanations**: When providing answers, explain _why_ the correct choice is right and _why_ others might be misleading. Provide detailed solutions that cover the underlying logic and context.
 - **Contextual Accuracy**: Ensure all questions are grounded in the provided context, avoiding generic external knowledge unless relevant.
+- **Language Consistency**: Match the inferred primary language of the referenced source document throughout the generated quiz and any text added to that source document, unless the user explicitly requests a different language.
 - **Persistence**: Save the quiz and solutions as `<topic>_quiz.md` (for example, `bash_quiz.md`) in the target folder.
 - **Link Formatting**: Never use `file:///` URLs, absolute filesystem paths, or relative paths in generated or updated `.md` files. Always use Obsidian Wikilinks (e.g., `[[topic_quiz]]` or `[[topic_quiz|Display Label]]`). Both the reference inside the generated `<topic>_quiz.md` file and the reference added to the original source `.md` file MUST use Obsidian Wikilinks.
 - **Test Yourself Link**: The Test Yourself link is the sole exception to the Wikilink rule. Use `test-yourself://open?quiz=<URL-encoded vault-relative quiz path>` as its Markdown destination. URL-encode the entire path (including `/`) and never use a vault name or an absolute filesystem path. For example: `[Test Yourself](test-yourself://open?quiz=Computer%20Science%2FLanguages%2FJava%2FAdvanced%2FExercises%20and%20Quiz%2FReactive%20Programming_quiz.md)`. Add one link per file and avoid duplicates.
