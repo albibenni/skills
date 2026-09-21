@@ -1,37 +1,87 @@
 ---
 name: explain
-description: Explains code, concepts, and architectures at an appropriate depth, prioritizing conceptual understanding with optional illustrative examples. Use when the user asks to explain something, understand how it works, or choose an implementation approach.
+description: Explains code, concepts, and architectures as coherent learning material, choosing an appropriate depth and note structure. Use when the user wants to understand how something works, build a mental model, or compare implementation approaches.
 ---
 
 # Explain
 
-This skill helps the user understand a topic before deciding what to build. Prioritize concepts, mechanisms, and decision-making; treat code as an optional illustration rather than the subject of the response unless the user asks for implementation help.
+Help the user form a durable mental model before deciding what to build. Prioritize concepts, mechanisms, and reasoning. Treat code as an optional illustration unless the user asks for implementation help.
 
-## Context Awareness
+## Frame the Learning Goal
 
-1. **Depth**: Infer whether the user wants a brief answer, a deep dive, implementation advice, or a code walkthrough. Ask only when the distinction materially changes the result.
-2. **Language**: Honor an explicit language request. Otherwise, infer the language from supplied code or the relevant project when an example is useful. With no language context, use concise pseudocode or TypeScript—whichever makes the concept clearest.
-3. **Repository context**: Inspect relevant supplied files or project conventions before giving implementation-specific advice. Do not search for a destination or modify project files unless the user asks to write documentation or implement a change.
+Before explaining, infer from the request and supplied context:
 
-## Workflow
+- what the learner should understand or be able to reason about afterward;
+- their likely starting knowledge and the prerequisites that need bridging;
+- whether they want a quick orientation, a deep learning note, implementation guidance, or a code walkthrough; and
+- whether the deliverable is a conversational answer, one note, or a connected set of notes.
 
-1. Explain the intent, mechanics, and rationale in plain language. Use an analogy only when it genuinely improves clarity.
-2. Cover trade-offs, alternatives, limitations, and edge cases that affect the user's decision; omit incidental detail.
-3. Give practical next steps when they follow naturally from the request.
-4. Provide implementation strategy or a small, idiomatic example only when it clarifies the topic or the user asks for it. Keep code focused on illustrating the concept, not on language-specific style rules.
-5. End with a short key-takeaways list when it improves scanability.
-6. Provide authoritative external resources for version-sensitive, disputed, or advanced topics, or when the user asks for sources. Prefer primary documentation, specifications, and papers.
-7. Write or update project documentation only with explicit user authorization.
+Inspect relevant supplied files and nearby project conventions before giving repository-specific guidance. Do not search for a destination or modify files unless the user asks for documentation or implementation.
 
-## Guidelines
+### Resolve consequential ambiguity
 
-- **Vault note language**: Write every vault note created or materially updated with this skill in English. Keep code identifiers, quotations, and established proper names unchanged where appropriate.
-- **Current guidance**: Verify official documentation for version-sensitive APIs, security guidance, framework advice, or when the user requests current recommendations. Do not add research overhead to stable conceptual explanations.
-- **Clarity First**: Ensure the text explanation can stand alone before the user even looks at the code.
-- **Analytical Depth**: In the analysis phase, don't just state facts; explain the underlying mechanics and implications.
-- **Actionable Suggestions**: Ensure suggestions are practical and directly applicable to common development scenarios.
-- **Illustrative code**: Keep examples minimal, correct, and idiomatic for the relevant language. Explain the ideas expressed by the code; do not turn a conceptual answer into a style guide or enforce TypeScript-specific conventions unless the user asks.
-- **Obsidian note context**: When creating or materially updating a note in the user's vault, inspect only the nearest relevant notes: the target folder, its parent or index note when present, and a small number of direct topic matches. Stop once enough verified links are found; do not perform broad vault-wide reading. Add only useful vault-relative links in the form `[[<note_path>]]` (or `[[<note_path>|Display Text]]`). Do not invent targets, link unrelated notes, or perform this scan for answers that are not being written into the vault. Use paths without the `.md` extension unless the vault's established convention uses extensions.
-- **Markdown links**: In vault notes, use Obsidian wikilinks for internal notes; use normal HTTPS Markdown links for external sources. Never use `file:///` URLs or absolute filesystem paths in generated notes.
-- **Companion learning materials**: When another requested workflow creates companion quizzes or worksheets, add or coordinate links only after their final vault-relative paths are known.
-- **No forced code**: A conceptual explanation does not need an example solely because this skill is active.
+Proceed with an explicit, reversible default when minor uncertainty will not materially change the explanation. If the topic, audience, intended outcome, decision criteria, depth, or deliverable has multiple plausible interpretations that would produce meaningfully different material, use a focused decision path before drafting. When the user asks which alternative to choose and the answer depends on unstated constraints, resolve those constraints through the same path rather than choosing generically.
+
+Use this sequence:
+
+1. State the learning outcome being explored and what is already clear from the request.
+2. Identify the next unresolved decision that blocks the explanation. Inspect available context instead of asking the user for facts already present.
+3. Ask exactly one concrete question at a time. Recommend an answer with a brief reason while preserving the user's choice.
+4. Track answered decisions compactly and work depth-first through dependencies. Do not open branches that will not affect the material.
+5. Start drafting once the learning outcome, audience, scope, and output shape are clear enough; leave reversible details to reasonable defaults.
+
+For several independent, low-risk details, propose a concise set of defaults and ask for confirmation instead of conducting a long interview. Do not interrogate the user when the request is already clear.
+
+## Choose the Note Architecture
+
+When the user asks for persistent learning material, first map the core question, prerequisites, major subtopics, and dependencies. Then decide whether the subject is best served by one note or a small note set. Optimize for conceptual boundaries and future retrieval, not a fixed word count.
+
+Keep one note when the material supports one learning objective, shares the same prerequisites and mental model, and can be understood in a coherent sequence.
+
+Split into an overview and focused notes when one signal is decisive or several reinforce one another:
+
+- distinct subtopics have their own learning objectives or mental models;
+- later sections require substantially different prerequisites;
+- layers or alternatives are useful independently and likely to be revisited separately;
+- a section needs its own substantial worked example, trade-offs, or failure modes;
+- combining the material would force the note to alternate repeatedly between abstraction levels; or
+- the proposed note is becoming an index, tutorial, and reference at the same time.
+
+Do not split merely because a note is long. Do not fragment a tightly coupled explanation into pages that require constant navigation.
+
+If the choice would materially affect the user's vault structure and neither option is clearly better, resolve it through the focused decision path. Otherwise choose the clearer structure and state it briefly. For a note set:
+
+- give the overview a map of the topic, suggested reading order, and links to every child note;
+- give each child note one clear learning objective and enough context to stand on its own;
+- keep cross-note duplication to the minimum needed for comprehension; and
+- use verified final paths so the set contains no invented links or orphan notes.
+
+## Build the Explanation
+
+Adapt the structure to the topic rather than forcing every heading, but preserve this learning progression where useful:
+
+1. **Purpose and relevance**: establish the problem the concept solves and when it matters.
+2. **Prerequisite bridge**: define necessary terms and connect new ideas to what the learner likely knows.
+3. **Core mental model**: present the smallest accurate model that explains the whole topic.
+4. **Mechanics**: develop the process, relationships, or data flow step by step, making causal links explicit.
+5. **Concrete application**: use one coherent worked example, diagram, trace, or small code sample when it reduces abstraction.
+6. **Boundaries**: cover trade-offs, alternatives, limitations, common misconceptions, and failure modes that change how the concept should be used.
+7. **Consolidation**: summarize the few ideas worth retaining and, for substantial material, add a short self-check or next practice when it improves learning.
+
+Sequence definitions before dependent ideas. Prefer one example carried through the explanation over several disconnected examples. Explain why each important step follows from the previous one; do not merely list facts. Use an analogy only when it improves the model, and state where the analogy stops matching reality.
+
+## Evidence and Examples
+
+- Honor an explicit language request. Otherwise infer the language from supplied code or the relevant project. With no language context, use concise pseudocode or TypeScript only when code is the clearest illustration.
+- Keep examples minimal, correct, and idiomatic. Explain the idea demonstrated by the code rather than turning a conceptual answer into a style guide.
+- Verify primary documentation for version-sensitive APIs, security guidance, framework advice, disputed claims, or current recommendations. Prefer specifications, official documentation, and papers.
+- Ensure the prose stands on its own before the learner reads the example. A conceptual explanation does not require code solely because this skill is active.
+
+## Vault Notes
+
+- Write every created or materially updated vault note in English. Keep code identifiers, quotations, and established proper names unchanged where appropriate.
+- Inspect only the nearest relevant notes: the target folder, its parent or index note when present, and a small number of direct topic matches. Stop once enough verified links are found; do not read the vault broadly.
+- Add only useful, verified vault-relative links in the form `[[<note_path>]]` or `[[<note_path>|Display Text]]`. Use paths without `.md` unless the vault convention includes extensions. Do not invent targets or link unrelated notes.
+- Use normal HTTPS Markdown links for external sources. Never put `file:///` URLs or absolute filesystem paths in a note.
+- When another requested workflow creates quizzes or worksheets, add or coordinate links only after their final vault-relative paths are known.
+- Write or update documentation only with explicit user authorization.
