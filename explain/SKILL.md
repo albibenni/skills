@@ -80,6 +80,7 @@ Sequence definitions before dependent ideas. Prefer one example carried through 
 ## Vault Notes
 
 - Write every created or materially updated vault note in English. Keep code identifiers, quotations, and established proper names unchanged where appropriate.
+- Start each substantial note with a concise table of contents placed after any frontmatter, title, and brief introductory summary. Link its meaningful section headings with Obsidian-native links such as `[[#Core mental model|Core mental model]]`; mirror heading hierarchy with nested bullets, keep link targets exact and unique, and omit trivial or overly granular subsections. For ordinary Markdown outside an Obsidian vault, use standard heading links instead.
 - Inspect only the nearest relevant notes: the target folder, its parent or index note when present, and a small number of direct topic matches. Stop once enough verified links are found; do not read the vault broadly.
 - Add only useful, verified vault-relative links in the form `[[<note_path>]]` or `[[<note_path>|Display Text]]`. Use paths without `.md` unless the vault convention includes extensions. Do not invent targets or link unrelated notes.
 - Use normal HTTPS Markdown links for external sources. Never put `file:///` URLs or absolute filesystem paths in a note.
