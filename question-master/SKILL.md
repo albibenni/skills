@@ -13,6 +13,7 @@ Create open-ended questions that require explanation, application, comparison, d
 2. Write at least two distinct questions. Prefer questions whose answers demonstrate reasoning; avoid duplicating the same fact in different wording.
 3. Give every question one concise suggested answer. Include the reasoning or acceptance criteria needed to evaluate a differently worded learner response.
 4. Save the result with a `.question.md` suffix and validate it against the contract below.
+5. When a source note is available, add the distinct Question references described below without changing links created by `quiz-master`.
 
 ## File Contract
 
@@ -41,7 +42,33 @@ Number both sections consecutively from `1` through `N`. Each answer must have t
 
 Questions and answers may contain paragraphs, inline code, fenced code blocks, and nested lists. Indent nested numbered lists so only the question or answer identifiers begin at the left margin.
 
-When a related source note and vault structure are available, place the document under that note's `Exercises and Quiz` folder unless the user specifies another location. Add a single Obsidian Wikilink between the source and question documents when editing both is in scope. A Test Yourself link may use `test-yourself://open?quiz=<URL-encoded vault-relative .question.md path>`; never put an absolute filesystem path in that link.
+When a related source note and vault structure are available, place the document under that note's `Exercises and Quiz` folder unless the user specifies another location.
+
+## Cross-links
+
+When editing both the source note and the generated question document is in scope:
+
+1. Add exactly one distinct question-file reference to the source note:
+
+   ```markdown
+   - Questions: [[<filename>.question|<filename> Questions]]
+   ```
+
+2. Add one Obsidian Wikilink back to the source note from the question document:
+
+   ```markdown
+   Source: [[<source note filename>]]
+   ```
+
+3. Add a question-specific Test Yourself link to both files:
+
+   ```markdown
+   [Test Yourself — Questions](test-yourself://open?quiz=<URL-encoded vault-relative .question.md path>)
+   ```
+
+Derive the deep-link path from the question file's actual final location. URL-encode the complete vault-relative path, including `/`; never include an absolute filesystem path or vault name.
+
+These links are independent of quiz links. Preserve every existing `Quiz` Wikilink and every Test Yourself link targeting a quiz file. Never reuse, replace, or rewrite a `quiz-master` entry. Before inserting anything, detect the exact question-file target and avoid adding duplicate Question references or question deep links.
 
 ## Quality Check
 
@@ -51,5 +78,7 @@ Before finishing, confirm that:
 - the required sections occur once and in the required order;
 - both sections use the exact consecutive sequence `1..N`;
 - every suggested answer addresses its matching question;
+- the source and question file reference each other when both are in scope;
+- Question links coexist with, and do not modify, existing Quiz links;
 - terminology and assumptions remain faithful to the source;
 - ambiguous source material is identified instead of silently inventing a rule.
