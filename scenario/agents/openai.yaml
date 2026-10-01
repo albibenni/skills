@@ -1,4 +1,0 @@
-interface:
-  display_name: "Scenario"
-  short_description: "Create quizzes, worksheets, and scenario labs."
-  default_prompt: "Use $scenario to create a scenario lab for this note."
