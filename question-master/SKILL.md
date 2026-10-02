@@ -9,11 +9,21 @@ Create open-ended questions that require explanation, application, comparison, d
 
 ## Workflow
 
-1. Read the source and identify its learning objectives, causal relationships, trade-offs, failure modes, and likely misconceptions.
-2. Write at least two distinct questions. Prefer questions whose answers demonstrate reasoning; avoid duplicating the same fact in different wording.
+1. Read the source and identify its defining vocabulary, roles or components, structural relationships, learning objectives, trade-offs, failure modes, adjacent concepts, and likely misconceptions.
+2. Write at least two distinct questions. Prefer questions whose answers demonstrate reasoning; avoid duplicating the same fact in different wording. Keep most questions focused on knowledge specific to the source topic; use general reasoning only when it helps apply or distinguish that topic.
 3. Give every question one concise suggested answer. Include the reasoning or acceptance criteria needed to evaluate a differently worded learner response.
 4. Save the result with a `.question.md` suffix and validate it against the contract below.
 5. When a source note is available, add the distinct Question references described below without changing links created by `quiz-master`.
+
+## Grounding and Coverage
+
+Make every numbered question independently understandable. A question runner may display one prompt without the document heading, neighboring questions, or introductory prose.
+
+- Do not rely on a shared scenario, source link, document position, or another question for facts needed to interpret a prompt.
+- Avoid positional and cross-question references such as “the example,” “the scenario above,” “the previous design,” or “question 3.” Include the minimum necessary context directly in each affected question.
+- State all facts needed to interpret an invented scenario. A source link provides attribution and further study; it does not replace necessary question context.
+- Cover the topic's canonical intent, named roles or components, defining mechanism or relationship, applicability, consequences, and important distinctions when the source supports them.
+- Prefer source-specific recall and reasoning over generic best-practice questions. Broader design principles are useful only when the question and answer explicitly connect them back to the topic.
 
 ## File Contract
 
@@ -81,4 +91,6 @@ Before finishing, confirm that:
 - the source and question file reference each other when both are in scope;
 - Question links coexist with, and do not modify, existing Quiz links;
 - terminology and assumptions remain faithful to the source;
+- every numbered question remains interpretable when shown by itself, without introductory prose or neighboring questions;
+- the set primarily tests the topic's defining knowledge rather than generic reasoning that could apply to many topics;
 - ambiguous source material is identified instead of silently inventing a rule.
