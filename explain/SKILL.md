@@ -1,11 +1,24 @@
 ---
 name: explain
-description: Explains code, concepts, and architectures as coherent learning material, choosing an appropriate depth and note structure. Use when the user wants to understand how something works, build a mental model, or compare implementation approaches.
+description: Explains code, concepts, and architectures in clear, concise learning material. Use when the user wants to understand how something works, build a mental model, or compare implementation approaches.
 ---
 
 # Explain
 
 Help the user form a durable mental model before deciding what to build. Prioritize concepts, mechanisms, and reasoning. Treat code as an optional illustration unless the user asks for implementation help.
+
+## Prefer the Smallest Clear Explanation
+
+Make a simple concept feel simple. Start with its plain-language meaning, the problem it solves, and one small example or analogy only when it helps. State the main idea before qualifications.
+
+- Default to a concise explanation. Add detail only when the user's question, stated level, or the concept's real complexity calls for it.
+- Use short, direct sentences and familiar words. Replace abstract phrasing with a concrete action or consequence.
+- Give one coherent example rather than several variations. Keep code to the smallest piece that makes the idea visible.
+- Do not pad an explanation with exhaustive sections, repeated summaries, edge cases, or adjacent patterns that do not change understanding.
+- Put caveats, trade-offs, and advanced distinctions after the core explanation, and include only those that affect a likely decision or prevent a meaningful misunderstanding.
+- If a term can be understood without formal terminology, use plain language first; introduce the formal name second if useful.
+
+For a quick concept explanation, aim for: **what it is → why it exists → how it works → one memorable takeaway**. Expand into a longer note only when the user requests depth, the concept needs it to be accurate, or the material is intended as a reference.
 
 ## Frame the Learning Goal
 
@@ -58,7 +71,7 @@ If the choice would materially affect the user's vault structure and neither opt
 
 ## Build the Explanation
 
-Adapt the structure to the topic rather than forcing every heading, but preserve this learning progression where useful:
+Adapt the structure to the topic rather than forcing every heading. Use only the parts that earn their place. For deeper material, preserve this learning progression where useful:
 
 1. **Purpose and relevance**: establish the problem the concept solves and when it matters.
 2. **Prerequisite bridge**: define necessary terms and connect new ideas to what the learner likely knows.
@@ -72,7 +85,7 @@ Sequence definitions before dependent ideas. Prefer one example carried through 
 
 ## Evidence and Examples
 
-- Honor an explicit language request. Otherwise infer the language from supplied code or the relevant project. With no language context, use concise pseudocode or TypeScript only when code is the clearest illustration.
+- Honor an explicit language request. Otherwise write prose in English. With no code-language context, use concise pseudocode or TypeScript only when code is the clearest illustration.
 - Keep examples minimal, correct, and idiomatic. Explain the idea demonstrated by the code rather than turning a conceptual answer into a style guide.
 - Verify primary documentation for version-sensitive APIs, security guidance, framework advice, disputed claims, or current recommendations. Prefer specifications, official documentation, and papers.
 - Ensure the prose stands on its own before the learner reads the example. A conceptual explanation does not require code solely because this skill is active.
