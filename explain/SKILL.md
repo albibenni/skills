@@ -85,7 +85,7 @@ Sequence definitions before dependent ideas. Prefer one example carried through 
 
 ## Evidence and Examples
 
-- Honor an explicit language request. Otherwise write prose in English. With no code-language context, use concise pseudocode or TypeScript only when code is the clearest illustration.
+- Honor an explicit language request and use the language established by supplied code or repository context. Otherwise write prose in English. When a code example is genuinely needed and no code language is established, default to concise, idiomatic Java. Use pseudocode instead only when language-neutral notation makes the concept materially clearer than concrete code.
 - Keep examples minimal, correct, and idiomatic. Explain the idea demonstrated by the code rather than turning a conceptual answer into a style guide.
 - Verify primary documentation for version-sensitive APIs, security guidance, framework advice, disputed claims, or current recommendations. Prefer specifications, official documentation, and papers.
 - Ensure the prose stands on its own before the learner reads the example. A conceptual explanation does not require code solely because this skill is active.
