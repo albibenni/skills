@@ -1,6 +1,6 @@
 ---
 name: question-master
-description: Create or revise Test Yourself open-question documents from learning material. Use for `.question.md` files with numbered prompts and individually matched suggested answers; do not use for multiple-choice quizzes or fill-in-the-blank worksheets.
+description: Create or revise Test Yourself documents containing three to five open questions from learning material. Use for `.question.md` files with numbered prompts and individually matched suggested answers; do not use for multiple-choice quizzes or fill-in-the-blank worksheets.
 ---
 
 # Question Master
@@ -10,7 +10,11 @@ Create open-ended questions that require explanation, application, comparison, d
 ## Workflow
 
 1. Read the source and identify its defining vocabulary, roles or components, structural relationships, learning objectives, trade-offs, failure modes, adjacent concepts, and likely misconceptions.
-2. Write at least two distinct questions. Prefer questions whose answers demonstrate reasoning; avoid duplicating the same fact in different wording. Keep most questions focused on knowledge specific to the source topic; use general reasoning only when it helps apply or distinguish that topic.
+2. Write three to five distinct questions, never more than five. Structure the opening questions so that:
+   - Question 1 elicits the topic's focal point: what it is, what problem or purpose defines it, and why it matters.
+   - Question 2 elicits the relevant actors, roles, components, or other participants and how they relate to the topic.
+   - Question 3 elicits the most important terms or keywords to remember and what they mean in this topic.
+   Adapt these lenses to the source rather than inventing actors or terminology it does not contain. Use questions 4 and 5, when included, for application, comparison, diagnosis, prediction, trade-offs, failure modes, or likely misconceptions. Avoid duplicating the same fact in different wording.
 3. Give every question one concise suggested answer. Include the reasoning or acceptance criteria needed to evaluate a differently worded learner response.
 4. Save the result with a `.question.md` suffix and validate it against the contract below.
 5. When a source note is available, add the distinct Question references described below without changing links created by `quiz-master`.
@@ -84,7 +88,8 @@ These links are independent of quiz links. Preserve every existing `Quiz` Wikili
 
 Before finishing, confirm that:
 
-- there are at least two questions;
+- there are three to five questions, never more than five;
+- questions 1–3 respectively cover the topic's focal point, its relevant actors/roles/components, and its essential terms or keywords, adapted to what the source actually contains;
 - the required sections occur once and in the required order;
 - both sections use the exact consecutive sequence `1..N`;
 - every suggested answer addresses its matching question;
